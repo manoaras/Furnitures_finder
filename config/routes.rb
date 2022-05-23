@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
-  resources :furnitures
-=======
   devise_for :users
->>>>>>> master
   root to: "pages#home"
+  resources :furnitures
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
