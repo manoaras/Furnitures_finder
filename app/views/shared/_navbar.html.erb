@@ -3,14 +3,7 @@
       <i class="fa-solid fa-house"></i> Home
     <% end %>
 
-    <div class="border border-secondary rounded-pill">
-      <button type="button" class="border-0 border-end bg-transparent">Localisation</button>
-      <button type="button" class="border-0 border-end bg-transparent">Duration</button>
-      <input type="text" name="search[query]" class="bg-transparent border-0 border-end" />
-      <button name="button" type="submit" class="border-0 bg-transparent">
-        <i class="fas fa-search"></i>
-      </button>
-    </div>
+    <%= render "shared/searchbar" %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto border border-1 rounded-pill">
