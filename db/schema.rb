@@ -14,6 +14,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_101844) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "furniture_id"
+    t.integer "start_date"
+    t.integer "end_date"
+    t.integer "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "furnitures", force: :cascade do |t|
     t.string "description"
     t.integer "price_per_day"
