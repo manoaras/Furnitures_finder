@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
+  height: 50px;
+  padding: 0;
   color: rgba(0,0,0,0.3);
 }
 .footer-links {
@@ -20,4 +20,16 @@
 }
 .footer-links a:hover {
   opacity: 1;
+}
+a {
+  font-size: 10px;
+  color: gray;
+}
+a:hover {
+  text-decoration: underline;
+  color: black;
+}
+.sticky-bottom {
+  position: sticky;
+  bottom: 0;
 }
