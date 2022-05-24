@@ -8,9 +8,10 @@
 <p><strong>Description </strong><%= @furniture.description %></p>
 <p><strong>Price per day </strong><%= @furniture.price_per_day %> €</p>
 
+<%= render "bookings/form", furniture: @furniture, booking: @booking %>
+
 <% if policy(@furniture).edit? %>
   <%= link_to "Edit this furniture", edit_furniture_path(@furniture) %>
 <% end %>
 
 <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
-

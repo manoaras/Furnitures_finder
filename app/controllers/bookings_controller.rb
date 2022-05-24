@@ -1,14 +1,14 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :destroy]
-  before_action :set_furniture, only: [:create, :new]
+  before_action :set_booking, only: [:destroy]
+  before_action :set_furniture, only: [:create]
 
+  # Plus besoin parce que Booking.new géré depuis Furnitures#Show
+  # def show() end
 
-  def show() end
-
-  def new
-    @booking = Booking.new
-    authorize @booking
-  end
+  # def new
+  #   @booking = Booking.new
+  #   authorize @booking
+  # end
 
   def create
     @booking = Booking.new(booking_params)
@@ -32,9 +32,6 @@ class BookingsController < ApplicationController
   def update
     authorize @booking
   end
-
-
-
 
   private
 

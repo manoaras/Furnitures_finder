@@ -8,6 +8,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
   def show
     authorize @furniture
+    @booking = Booking.new
   end
 
   def new
