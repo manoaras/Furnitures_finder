@@ -2,14 +2,12 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy]
   before_action :set_furniture, only: [:create, :new]
 
-  def index
-    @bookings = Booking.all
-  end
 
   def show() end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -17,16 +15,25 @@ class BookingsController < ApplicationController
     @booking.furniture_id = @furniture.id
     @booking.user_id = current_user.id
     @booking.total_price = @furniture.price_per_day * (@booking.end_date - @booking.start_date).to_i
+    authorize @booking
     if @booking.save!
-      redirect_to booking_path(@booking)
+      flash[:alert] = "Booking confirmed"
+      redirect_to furniture_path(@furniture)
     else
+      flash[:alert] = "Error, please verify information"
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    
+    authorize @booking
   end
+
+  def update
+    authorize @booking
+  end
+
+
 
 
   private
