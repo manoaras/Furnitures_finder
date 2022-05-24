@@ -3,12 +3,13 @@
 <%= link_to "Back to home page", root_path %>
 <p>Find me in app/views/furnitures/index.html.erb</p>
 
+<%= link_to "New furniture", new_furniture_path if policy(Furniture).new? %>
 
 <h2>See all our furnitures:</h2>
 
 <% @furnitures.each do |furniture| %>
   <ul>
     <li><%= link_to furniture.name.capitalize, furniture_path(furniture.id)  %></li>
-    <li><strong>Description: </strong><%= furniture.description %></li>
+    <strong>Description: </strong><%= furniture.description %>
   </ul>
 <% end %>
