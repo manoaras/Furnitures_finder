@@ -1,5 +1,14 @@
 <h1>Furnitures#show</h1>
 <p>Find me in app/views/furnitures/show.html.erb</p>
 
+<%= link_to "Back to index", furnitures_path %>
+
 <h2><%= @furniture.name %></h2>
-<p><%= @furniture.description %></p>
+<p><strong>Description </strong><%= @furniture.description %></p>
+<p><strong>Price per day </strong><%= @furniture.price_per_day %> €</p>
+
+<% if policy(@furniture).edit? %>
+  <%= link_to "Edit this furniture", edit_furniture_path(@furniture) %>
+<% end %>
+
+<%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
