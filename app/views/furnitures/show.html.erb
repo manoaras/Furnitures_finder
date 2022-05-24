@@ -4,6 +4,7 @@
 <%= link_to "Back to index", furnitures_path %>
 
 <h2><%= @furniture.name %></h2>
+
 <p><strong>Description </strong><%= @furniture.description %></p>
 <p><strong>Price per day </strong><%= @furniture.price_per_day %> €</p>
 
@@ -12,3 +13,4 @@
 <% end %>
 
 <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
+

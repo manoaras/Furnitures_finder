@@ -1,1 +1,13 @@
 <h1>bookings</h1>
+
+  <p><%= link_to "add booking",  furnitures_path %></p>
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.total_price %>$</li>
+    <li><%= booking.start_date %></li>
+    <li><%= booking.end_date %></li>
+    <li><%= booking.furniture_id %></li>
+    <hr>
+  <%end %>
+</ul>

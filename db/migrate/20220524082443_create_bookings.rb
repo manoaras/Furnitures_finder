@@ -1,10 +1,10 @@
 class CreateBookings < ActiveRecord::Migration[7.0]
   def change
     create_table :bookings do |t|
-      t.integer :user_id
-      t.integer :furniture_id
-      t.integer :start_date
-      t.integer :end_date
+      t.references :user, null: false, foreign_key: true
+      t.references :furniture, null: false, foreign_key: true
+      t.date :start_date
+      t.date :end_date
       t.integer :total_price
 
       t.timestamps
