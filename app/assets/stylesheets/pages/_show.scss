@@ -1,0 +1,30 @@
+// Specific CSS for your show-page
+
+.card.p-3.mt-1{
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow:  31px 31px 98px #e3e3e3, -31px -31px 98px #ffffff;
+  padding: 10px;
+}
+
+.p-3.bg-white{
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow:  31px 31px 98px #e3e3e3, -31px -31px 98px #ffffff;
+}
+
+.container > .row > .col-md-8{
+  margin: auto
+;}
+
+.alert.alert-warning.mt-1{
+  margin: 10px;
+}
+
+.d-flex.bd-highlight.text-muted{
+  border-radius: 11px;
+  background: #ffffff;
+  box-shadow:  5px 5px 24px #b5b5b5, -5px -5px 24px #ffffff;
+  margin: 12%;
+  padding: 13px;
+}

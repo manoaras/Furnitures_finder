@@ -4,6 +4,10 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @furnitures = policy_scope(Furniture)
+    if params[:search].present?
+      sql_query = "furnitures.name ILIKE :query OR furnitures.description ILIKE :query"
+      @furnitures = Furniture.where(sql_query, query: "%#{params[:search]}%")
+    end
   end
 
   def show

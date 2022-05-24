@@ -21,7 +21,8 @@ puts "DB cleaned"
       name: Faker::House.furniture,
       description: Faker::Lorem.sentence,
       user_id: user.id,
-      price_per_day: rand(30...1000)
+      price_per_day: rand(30...1000),
+      city: Faker::Address.city
       )
     furniture.save!
   end
