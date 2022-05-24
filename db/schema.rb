@@ -15,13 +15,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_082443) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "furniture_id"
-    t.integer "start_date"
-    t.integer "end_date"
+    t.bigint "user_id", null: false
+    t.bigint "furniture_id", null: false
+    t.date "start_date"
+    t.date "end_date"
     t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["furniture_id"], name: "index_bookings_on_furniture_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "furnitures", force: :cascade do |t|
@@ -48,5 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_082443) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "furnitures"
+  add_foreign_key "bookings", "users"
   add_foreign_key "furnitures", "users"
 end
