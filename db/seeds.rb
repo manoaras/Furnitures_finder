@@ -20,16 +20,19 @@ puts "DB cleaned"
     furniture = Furniture.new(
       name: Faker::House.furniture,
       description: Faker::Lorem.sentence,
-      user_id: user.id
+      user_id: user.id,
+      price_per_day: rand(30...1000)
       )
     furniture.save!
   end
 end
+start_date = Date.today - 1
+end_date = Date.today + 1
 
 Booking.create!(
-  total_price: 100,
-  start_date: Date.today - 1,
-  end_date: Date.today + 1,
+  total_price: Furniture.last.price_per_day * (end_date - start_date).to_i,
+  start_date: start_date,
+  end_date: end_date,
   user_id: User.last.id,
   furniture_id: Furniture.last.id
 )

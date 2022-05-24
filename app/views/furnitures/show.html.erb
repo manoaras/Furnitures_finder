@@ -3,3 +3,7 @@
 
 <h2><%= @furniture.name %></h2>
 <p><%= @furniture.description %></p>
+
+<p><%#= link @furniture %></p>
+
+<p><%= link_to "add booking", new_furniture_booking_path(@furniture) %></p>
