@@ -2,7 +2,7 @@
 
 <h2><%= @furniture.name.capitalize %></h2>
 
-<img src="https://api.lorem.space/image/furniture?w=150&h=150" alt="">
+<img src="https://picsum.photos/id/<%= furniture.id %>/1000/1000" style="object-fit: cover;" />
 
 <p><%= @furniture.description %></p>
 <p> Price per day: <%= @furniture.price_per_day %> €</p>
