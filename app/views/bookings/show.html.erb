@@ -1,0 +1,15 @@
+<h1>Details of your order</h1>
+
+<h2><%= @furniture.name.capitalize %></h2>
+
+<img src="https://api.lorem.space/image/furniture?w=150&h=150" alt="">
+
+<p><%= @furniture.description %></p>
+<p> Price per day: <%= @furniture.price_per_day %> €</p>
+<p>Start date of rent: <%= @booking.start_date %></p>
+<p>End date of rent: <%= @booking.end_date %></p>
+
+<p>Total price: <%= @booking.total_price %> €</p>
+
+<%= link_to "Continue your shopping", furnitures_path %>
+<%= link_to "Pay", furnitures_path %>
