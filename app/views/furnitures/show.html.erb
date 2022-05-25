@@ -89,44 +89,53 @@
                 </div>
               </div>
 
-              <%= render "bookings/form", furniture: @furniture, booking: @booking %>
+              <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto">
+                <%= simple_form_for([@furniture, @booking]) do |f| %>
+                  <div class="flex-grow-1 bd-highlight d-flex mx-auto">
+                    <p class="border-right mx-auto"><%= f.input :start_date %></p>
+                  </div>
+                  <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
+                    <p class="border-left mx-auto"><%= f.input :end_date %></p>
+                  </div>
+                  <div class="d-flex justify-content-between bd-highlight">
+                    <div class="p-2 bd-highlight">
+                      <p><strong>Total</strong></p>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                      <p>110 €</p>
+                    </div>
+                  </div>
 
-              <div class="d-flex justify-content-between bd-highlight">
-                <div class="p-2 bd-highlight">
-                  <p><strong>Total</strong></p>
-                </div>
-                <div class="p-2 bd-highlight">
-                  <p>110 €</p>
-                </div>
+                  <div class="d-flex justify-content-between bd-highlight">
+                    <div class="p-2 bd-highlight">
+                      <p><strong>Delivery</strong></p>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                      <p>5 €</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between bd-highlight">
+                    <div class="p-2 bd-highlight">
+                      <p><strong>Services</strong></p>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                      <p>4.95 €</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between bd-highlight border-top">
+                    <div class="p-2 bd-highlight">
+                      <p><strong>Total</strong></p>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                      <p><strong><%= 119.95%> €</strong></p>
+                    </div>
+                  </div>
+                  <%= f.submit "Book it", class: "btn btn-primary mx-auto w-75" %>
+                <% end %>
               </div>
 
-              <div class="d-flex justify-content-between bd-highlight">
-                <div class="p-2 bd-highlight">
-                  <p><strong>Delivery</strong></p>
-                </div>
-                <div class="p-2 bd-highlight">
-                  <p>5 €</p>
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-between bd-highlight">
-                <div class="p-2 bd-highlight">
-                  <p><strong>Services</strong></p>
-                </div>
-                <div class="p-2 bd-highlight">
-                  <p>4.95 €</p>
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-between bd-highlight border-top">
-                <div class="p-2 bd-highlight">
-                  <p><strong>Total</strong></p>
-                </div>
-                <div class="p-2 bd-highlight">
-                  <p><strong><%= 119.95%> €</strong></p>
-                </div>
-              </div>
-              <a href="<%= furniture_booking_path(@furniture) %>" class="btn btn-primary mx-auto w-75">Book it</a>
             </div>
           </div>
           <!-- /checkout -->
