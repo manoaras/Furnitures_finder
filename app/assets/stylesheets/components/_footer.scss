@@ -1,5 +1,5 @@
 .footer {
-  background: #F4F4F4;
+  // background: #F4F4F4;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,4 +32,6 @@ a:hover {
 .sticky-bottom {
   position: sticky;
   bottom: 0;
+  z-index: 100;
+  background-color: white;
 }
