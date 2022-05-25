@@ -1,20 +1,22 @@
 .banner {
   background-size: cover;
   background-position: center;
+  background-image: asset-url('background-banner-home.png');
   padding: 0;
+  height: 66vh;
 }
 
 .banner h1 {
   margin: 0;
-  color: white;
+  color: #B37C4C;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 56px;
   font-weight: bold;
 }
 
 .banner p {
-  font-size: 20px;
-  color: white;
+  font-size: 16px;
+  color: #A09FC5;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
