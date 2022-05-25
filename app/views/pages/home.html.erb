@@ -1,24 +1,22 @@
-<%= render "shared/banner" %>
-
-<div class="row">
+<div class="row my-3">
+<p>﹒Last news furnitures</p>
   <% @furnitures.each do |furniture| %>
     <div class="col-4">
       <a href="<%= furniture_path(furniture.id)%>">
         <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <img src="https://picsum.photos/id/<%= furniture.id %>/1000/1000" style="object-fit: cover;" />
           <div class="card-product-infos">
+
             <div class="card-product-infos-left">
               <h2><%=furniture.name.capitalize%></h2>
               <p class="text-dark"><%= furniture.description %></p>
             </div>
             <h2 class="card-product-pricing">£99.99</h2>
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
+
           </div>
         </div>
       </a>
     </div>
   <% end %>
 </div>
-
-
-  <p>Page en construction... <%= link_to "Go to index", furnitures_path %></p>
