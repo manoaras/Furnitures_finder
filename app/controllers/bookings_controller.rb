@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:destroy, :show]
-  before_action :set_furniture, only: [:create, :show]
+  before_action :set_furniture, only: [:create]
 
   # Plus besoin parce que Booking.new géré depuis Furnitures#Show
   # def show() end
@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
 
   def show
     authorize @booking
+    @furniture = @booking.furniture
   end
 
   def create
@@ -22,7 +23,7 @@ class BookingsController < ApplicationController
     authorize @booking
     if @booking.save!
       flash[:alert] = "Booking confirmed"
-      redirect_to furniture_path(@furniture)
+      redirect_to booking_path(@booking)
     else
       flash[:alert] = "Error, please verify information"
       render :new, status: :unprocessable_entity
