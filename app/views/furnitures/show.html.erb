@@ -82,21 +82,27 @@
             <div class="row">
               <div class="d-flex justify-content-between bd-highlight mt-2">
                 <div class="bd-highlight">
-                  <p><strong>Price per months</strong> (6)</p>
+                  <p><strong>Price per months</strong></p>
                 </div>
                 <div class="bd-highlight">
                   <p><%= @furniture.price_per_day %> €</p>
                 </div>
               </div>
 
-              <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto">
-                <%= simple_form_for([@furniture, @booking]) do |f| %>
-                  <div class="flex-grow-1 bd-highlight d-flex mx-auto">
-                    <p class="border-right mx-auto"><%= f.input :start_date %></p>
+              <div class="all checkout">
+                  <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto">
+                    <%= simple_form_for([@furniture, @booking]) do |f| %>
+                      <div class="flex-grow-1 bd-highlight d-flex mx-auto">
+                        <p class="border-right mx-auto"><%= f.input :start_date %></p>
+                      </div>
+                      <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
+                        <p class="border-left mx-auto"><%= f.input :end_date %></p>
+                      </div>
+                    <div class="d-flex mx-auto mt-4">
+                      <%= f.submit "Book it", class: "btn btn-primary mx-auto w-100" %>
+                    </div>
                   </div>
-                  <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
-                    <p class="border-left mx-auto"><%= f.input :end_date %></p>
-                  </div>
+
                   <div class="d-flex justify-content-between bd-highlight">
                     <div class="p-2 bd-highlight">
                       <p><strong>Total</strong></p>
@@ -132,7 +138,6 @@
                       <p><strong><%= 119.95%> €</strong></p>
                     </div>
                   </div>
-                  <%= f.submit "Book it", class: "btn btn-primary mx-auto w-75" %>
                 <% end %>
               </div>
 
