@@ -11,8 +11,8 @@
               <h2><%=furniture.name.capitalize%></h2>
               <p class="text-dark"><%= furniture.description %></p>
             </div>
-            <h2 class="card-product-pricing">£99.99</h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
+            <h2 class="card-product-pricing"><%= rand(2..30) %> €</h2>
+            <img src="https://i.pravatar.cc/150?img=<%= furniture.id %>" class="card-product-user avatar-bordered" />
 
           </div>
         </div>
