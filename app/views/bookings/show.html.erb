@@ -1,15 +1,44 @@
-<h1>Details of your order</h1>
+<h6 class="d-block mx-auto text-center">Details of your order</h6>
 
-<h2><%= @furniture.name.capitalize %></h2>
+<h1 class="d-block mx-auto text-center"><%= @furniture.name.capitalize %></h1>
 
-<img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" style="object-fit: cover;" />
+<div class="card-product-2 d-flex mx-auto w-50">
+  <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+  <div class="card-product-2-infos">
+    <h5><strong><%= @furniture.description %></strong></h5>
+    <p> Price per day: <%= @furniture.price_per_day %> €</p>
+    <p> Start date of rent: <%= @booking.start_date %></p>
+    <p> End date of rent: <%= @booking.end_date %></p>
+    <br>
+    <h5> Total price: 500 €</h5>
+  </div>
+</div>
 
-<p><%= @furniture.description %></p>
-<p> Price per day: <%= @furniture.price_per_day %> €</p>
-<p>Start date of rent: <%= @booking.start_date %></p>
-<p>End date of rent: <%= @booking.end_date %></p>
-
-<p>Total price: <%= @booking.total_price %> €</p>
-
-<%= link_to "Continue your shopping", furnitures_path %>
-<%= link_to "Pay", furnitures_path %>
+<br>
+<p class="btn btn-primary d-flex mx-auto w-25 text-center">
+  <%= link_to "🛍️ 🛒 Continue your shopping 🛒 🛍️", furnitures_path %>
+</p>
+<br>
+<p class="btn btn-primary d-flex mx-auto w-25 text-center">
+  <%= link_to "💰 💳   Pay   💳 💰", furnitures_path %>
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
