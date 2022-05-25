@@ -114,7 +114,7 @@
                   <p><strong>$ 109.95</strong></p>
                 </div>
               </div>
-              <a href="<%= new_furniture_booking_path(@furniture) %>" class="btn btn-primary mx-auto w-75">Book it</a>
+              <a href="<%= furniture_bookings_path(@furniture) %>" class="btn btn-primary mx-auto w-75">Book it</a>
             </div>
           </div>
           <!-- /checkout -->
@@ -136,4 +136,3 @@
     <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
   </body>
 </html>
-
