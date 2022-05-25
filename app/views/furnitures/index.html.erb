@@ -1,18 +1,18 @@
-<h1>Furnitures#index</h1>
+
+<%= render "shared/banner" %>
 
 <%= link_to "Back to home page", root_path %>
-<p>Find me in app/views/furnitures/index.html.erb</p>
 
 <%= link_to "New furniture", new_furniture_path if policy(Furniture).new? %>
 
-<h2>See all our furnitures:</h2>
+<h1>See all our furnitures:</h1>
 
 <div class="row">
   <% @furnitures.each do |furniture| %>
   <div class="col-4">
     <a href="<%= furniture_path(furniture.id)%>">
       <div class="card-product">
-        <img src="https://picsum.photos/id/<%= furniture.id %>/200/300" style="object-fit: cover;" />
+        <img src="https://picsum.photos/id/<%= furniture.id %>/1000/1000" style="object-fit: cover;" />
         <div class="card-product-infos">
           <div class="card-product-infos-left">
             <h2><%=furniture.name.capitalize%></h2>

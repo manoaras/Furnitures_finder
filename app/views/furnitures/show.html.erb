@@ -28,13 +28,13 @@
         </div>
         <div class="carousel-inner" style="height: 40vh;">
           <div class="carousel-item active">
-            <img src="https://picsum.photos/id/<%= @furniture.id %>/800/800" class="d-block w-100" alt="" style="object-fit: cover;">
+            <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100" alt="" style="object-fit: cover;">
           </div>
           <div class="carousel-item">
-            <img src="https://picsum.photos/id/<%= @furniture.id %>/800/800" class="d-block w-100" alt="" style="object-fit: cover;">
+            <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100" alt="" style="object-fit: cover;">
           </div>
           <div class="carousel-item">
-            <img src="https://picsum.photos/id/<%= @furniture.id %>/800/800" class="d-block w-100" alt="" style="object-fit: cover;">
+            <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100" alt="" style="object-fit: cover;">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -96,7 +96,7 @@
                   <p><strong>Total</strong></p>
                 </div>
                 <div class="p-2 bd-highlight">
-                  <p><%= @furniture.price_per_day%> €</p>
+                  <p>110 €</p>
                 </div>
               </div>
 
@@ -123,10 +123,10 @@
                   <p><strong>Total</strong></p>
                 </div>
                 <div class="p-2 bd-highlight">
-                  <p><strong><%= @furniture.price_per_day%> €</strong></p>
+                  <p><strong><%= 119.95%> €</strong></p>
                 </div>
               </div>
-              <a href="<%= furniture_bookings_path(@furniture) %>" class="btn btn-primary mx-auto w-75">Book it</a>
+              <a href="<%= furniture_booking_path(@furniture) %>" class="btn btn-primary mx-auto w-75">Book it</a>
             </div>
           </div>
           <!-- /checkout -->
@@ -146,5 +146,11 @@
     <br>
 
     <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
+
+    <div class="clearfix">
+      <div class="spinner-border float-end" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
   </body>
 </html>
