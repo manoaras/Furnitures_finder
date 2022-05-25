@@ -1,5 +1,10 @@
+<div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto">
 <%= simple_form_for([@furniture, @booking]) do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit %>
+  <div class="flex-grow-1 bd-highlight d-flex mx-auto">
+    <p class="border-right mx-auto"><%= f.input :start_date %></p>
+  </div>
+  <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
+    <p class="border-left mx-auto"><%= f.input :end_date %></p>
+  </div>
 <% end %>
+</div>

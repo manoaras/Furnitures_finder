@@ -14,7 +14,7 @@
   <div class="col-4">
     <a href="<%= furniture_path(furniture.id)%>">
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <img src="https://picsum.photos/id/<%= furniture.id %>/200/300" style="object-fit: cover;" />
         <div class="card-product-infos">
           <div class="card-product-infos-left">
             <h2><%=furniture.name.capitalize%></h2>
