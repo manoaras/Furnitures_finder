@@ -24,7 +24,7 @@
         <div class="carousel-inner">
         <% @furniture.photos.each do |photo| %>
           <div class="carousel-item active">
-              <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100 mx-auto" alt="" style="object-fit: cover;">
+              <%# <img src="https://picsum.photos/id/<%= @furniture.id/1000/1000" class="d-block w-100 mx-auto" alt="" style="object-fit: cover;"> %>
               <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
           </div>
         <% end %>
