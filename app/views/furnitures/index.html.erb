@@ -7,11 +7,20 @@
   <h2 class="title-index">See all our furnitures</h2>
 </div>
 
+<<<<<<< HEAD
 <div class="row">
   <% @furnitures.each do |furniture| %>
     <div class="col-4">
       <a href="<%= furniture_path(furniture.id)%>">
         <div class="card-product">
+=======
+<%# <div class="d-flex flex-grow-1 flex-wrap"> %>
+  <div class="row">
+    <% @furnitures.each do |furniture| %>
+      <div class="col-4">
+        <a href="<%= furniture_path(furniture.id)%>">
+          <div class="card-product">
+>>>>>>> master
 
           <img src="https://picsum.photos/id/<%= furniture.id %>/1000/1000" />
           <div class="card-product-infos">
