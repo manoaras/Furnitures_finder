@@ -1,7 +1,7 @@
 <h6 class="d-block mx-auto text-center">Details of your order</h6>
 
 <div class="card-product-2 d-flex mx-auto w-50 top-50">
-  <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+  <img src="<% @furniture.photos.first %>"/>
   <div class="card-product-2-infos px-3">
     <h1 class="d-block mx-auto"><%= @furniture.name.capitalize %></h1>
     <br>
