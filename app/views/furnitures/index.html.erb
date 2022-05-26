@@ -1,9 +1,10 @@
-<div class="mb-3">
+<div class="see-all">
+
   <% if policy(Furniture).new? %>
-    <%= link_to "+ new furniture", new_furniture_path, class: "btn-new-furniture"  %>
+    <%= link_to "+  new furniture", new_furniture_path, class: "btn-new-furniture"  %>
   <% end %>
 
-  <h1>See all our furnitures:</h1>
+  <h2 class="title-index">See all our furnitures</h2>
 </div>
 
 <div class="row">
