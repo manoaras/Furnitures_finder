@@ -1,17 +1,9 @@
-body {
-  min-height: 100vh; /* 1 */
-	display: flex; /* 2 */
-	flex-direction: column; /* 3 */
-}
-
 .footer {
-  position: absolute;
-  bottom: 0;
+  // height: 200px;
   background-color: white;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 50px;
   padding: 0;
   color: rgba(0,0,0,0.3);
 }
