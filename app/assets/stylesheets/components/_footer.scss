@@ -1,5 +1,6 @@
 .footer {
-  position: static;
+  position: absolute;
+  bottom: 0;
   background-color: white;
   display: flex;
   justify-content: space-around;
