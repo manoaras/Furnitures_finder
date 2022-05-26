@@ -1,6 +1,11 @@
-<%= link_to "New furniture", new_furniture_path if policy(Furniture).new? %>
+<div class="see-all">
 
-<h1>See all our furnitures:</h1>
+  <% if policy(Furniture).new? %>
+    <%= link_to "+  new furniture", new_furniture_path, class: "btn-new-furniture"  %>
+  <% end %>
+
+  <h2 class="title-index">See all our furnitures</h2>
+</div>
 
 <div class="d-flex flex-grow-1 flex-wrap">
   <div class="row">
