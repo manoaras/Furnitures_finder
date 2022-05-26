@@ -1,6 +1,10 @@
-<%= link_to "New furniture", new_furniture_path if policy(Furniture).new? %>
+<div class="mb-3">
+  <% if policy(Furniture).new? %>
+    <%= link_to "+ new furniture", new_furniture_path, class: "btn-new-furniture"  %>
+  <% end %>
 
-<h1>See all our furnitures:</h1>
+  <h1>See all our furnitures:</h1>
+</div>
 
 <div class="row">
   <% @furnitures.each do |furniture| %>
