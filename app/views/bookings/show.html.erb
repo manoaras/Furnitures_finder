@@ -2,7 +2,7 @@
 
 <h1 class="d-block mx-auto text-center"><%= @furniture.name.capitalize %></h1>
 
-<div class="card-product-2 d-flex mx-auto w-50">
+<div class="card-product-2 d-flex mx-auto w-50 top-50">
   <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
   <div class="card-product-2-infos">
     <h5><strong><%= @furniture.description %></strong></h5>
@@ -14,14 +14,113 @@
   </div>
 </div>
 
+<!-- possible actions -->
+
+<div class="d-flex justify-content-center">
+  <div style="display: inline-block">
+    <div class="secondary-button-booking">
+      <%= link_to "🛍️ Continue your shopping 🛍️", furnitures_path %>
+    </div>
+    <div class="secondary-button-booking">
+      <%= link_to "💰  Pay   💰", furnitures_path %>
+    </div>
+    <br>
+    <br>
+    <h3>Your other bookings</h3>
+  </div>
+</div>
 <br>
-<p class="btn btn-primary d-flex mx-auto w-25 text-center">
-  <%= link_to "🛍️ 🛒 Continue your shopping 🛒 🛍️", furnitures_path %>
-</p>
 <br>
-<p class="btn btn-primary d-flex mx-auto w-25 text-center">
-  <%= link_to "💰 💳   Pay   💳 💰", furnitures_path %>
-</p>
+<!-- other bookings -->
+    <!-- pending bookings -->
+<div class="container-dashboard d-flex row m-10">
+  <div class="col align-self-center row align-items-start">
+    <div class= "col status">
+      Pending
+      <div class="card-product-2 d-flex top-25" style="height: 20%;">
+        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+        <div class="card-product-2-infos">
+          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
+          <p> Price per day: <%= @furniture.price_per_day %> €</p>
+          <p> Total price: 500 €</p>
+        </div>
+      </div>
+      <div class="card-product-2 d-flex top-25" style="height: 20%;">
+        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+        <div class="card-product-2-infos">
+          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
+          <p> Price per day: <%= @furniture.price_per_day %> €</p>
+          <p> Total price: 500 €</p>
+        </div>
+      </div>
+      <div class="card-product-2 d-flex top-25" style="height: 20%;">
+        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+        <div class="card-product-2-infos">
+          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
+          <p> Price per day: <%= @furniture.price_per_day %> €</p>
+          <p> Total price: 500 €</p>
+        </div>
+      </div>
+    </div>
+      <!-- accepted bookings -->
+    <div class= "col status">
+      Accepted
+      <div class="card-product-2 d-flex top-25" style="height: 20%;">
+        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+        <div class="card-product-2-infos">
+          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
+          <p> Price per day: <%= @furniture.price_per_day %> €</p>
+          <p> Total price: 500 €</p>
+        </div>
+      </div>
+      <div class="card-product-2 d-flex top-25" style="height: 20%;">
+        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+        <div class="card-product-2-infos">
+          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
+          <p> Price per day: <%= @furniture.price_per_day %> €</p>
+          <p> Total price: 500 €</p>
+        </div>
+      </div>
+      <div class="card-product-2 d-flex top-25" style="height: 20%;">
+        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+        <div class="card-product-2-infos">
+          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
+          <p> Price per day: <%= @furniture.price_per_day %> €</p>
+          <p> Total price: 500 €</p>
+        </div>
+      </div>
+    </div>
+    <!-- refused bookings -->
+    <div class= "col status">
+      Refused
+      <div class="card-product-2 d-flex top-25" style="height: 20%;">
+        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+        <div class="card-product-2-infos">
+          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
+          <p> Price per day: <%= @furniture.price_per_day %> €</p>
+          <p> Total price: 500 €</p>
+        </div>
+      </div>
+      <div class="card-product-2 d-flex top-25" style="height: 20%;">
+        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+        <div class="card-product-2-infos">
+          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
+          <p> Price per day: <%= @furniture.price_per_day %> €</p>
+          <p> Total price: 500 €</p>
+        </div>
+      </div>
+      <div class="card-product-2 d-flex top-25" style="height: 20%;">
+        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
+        <div class="card-product-2-infos">
+          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
+          <p> Price per day: <%= @furniture.price_per_day %> €</p>
+          <p> Total price: 500 €</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <br>
 <br>
 <br>

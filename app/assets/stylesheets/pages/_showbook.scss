@@ -32,7 +32,26 @@
   padding: 16px;
 }
 
-.btn.btn-primary.mx-auto.w-25 a{
-  color: white;
-  font-size: 15px;
+.secondary-button-booking{
+  border: 1px solid rgb(225, 172, 59);
+  border-radius: 25px;
+  color: rgb(225, 172, 59);
+  text-align: center;
+  font-size: 16px;
+  padding: 12px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 9px;
+}
+
+.secondary-button-booking a{
+  text-decoration: none;
+  color: rgb(225, 172, 59);
+}
+
+.secondary-button-booking a:hover{
+  color: rgb(189, 157, 88);
 }
