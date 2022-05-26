@@ -54,6 +54,6 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   end
 
   def params_furniture
-    params.require(:furniture).permit(:name, :description, :price_per_day)
+    params.require(:furniture).permit(:name, :description, :price_per_day, photos: [] )
   end
 end
