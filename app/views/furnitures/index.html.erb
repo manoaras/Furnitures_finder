@@ -1,23 +1,31 @@
-<%= link_to "New furniture", new_furniture_path if policy(Furniture).new? %>
+<div class="see-all">
 
-<h1>See all our furnitures:</h1>
+  <% if policy(Furniture).new? %>
+    <%= link_to "+  new furniture", new_furniture_path, class: "btn-new-furniture"  %>
+  <% end %>
+
+  <h2 class="title-index">All our furnitures</h2>
+</div>
 
 <div class="row">
   <% @furnitures.each do |furniture| %>
-  <div class="col-4">
-    <a href="<%= furniture_path(furniture.id)%>">
-      <div class="card-product">
-        <img src="https://picsum.photos/id/<%= furniture.id %>/1000/1000" style="object-fit: cover;" />
-        <div class="card-product-infos">
-          <div class="card-product-infos-left">
-            <h2><%=furniture.name.capitalize%></h2>
-            <p class="text-dark"><%= furniture.description %></p>
+    <div class="col-4">
+
+      <a href="<%= furniture_path(furniture.id)%>">
+        <div class="card-product">
+          <img src="https://picsum.photos/id/<%= furniture.id %>/1000/1000" />
+
+          <div class="card-product-infos">
+            <div class="card-product-infos-left mt-3">
+              <h2><%=furniture.name.capitalize%></h2>
+            </div>
+            <h2 class="card-product-pricing"><%= furniture.price_per_day %>€</h2>
+            <img src="https://i.pravatar.cc/150?img=<%= furniture.id %>" class="card-product-user avatar-bordered" />
           </div>
-          <h2 class="card-product-pricing"><%= furniture.price_per_day %> €</h2>
-          <img src="https://i.pravatar.cc/150?img=<%= furniture.id %>" class="card-product-user avatar-bordered" />
+
         </div>
-      </div>
-    </a>
-  </div>
+      </a>
+
+    </div>
   <% end %>
 </div>

@@ -1,14 +1,11 @@
-<div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto">
-
-  <%= simple_form_for [@furniture, @booking], data: { controller: "flatpickr" } do |f| %>
-    <div class="flex-grow-1 bd-highlight d-flex mx-auto">
-      <p class="border-right mx-auto"><%= f.input :start_date, as: :string, required: false, input_html: { class: "datepickr" } %></p>
-    </div>
-    <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
-      <p class="border-left mx-auto"><%= f.input :end_date, as: :string, required: false, input_html: { class: "datepickr" } %></p>
-    </div>
-  <div class="d-flex mx-auto mt-4">
-    <%= f.submit "Book it", class: "btn btn-primary mx-auto w-100" %>
+<div class="d-flex bd-highlight text-muted mx-auto w-50 px-auto">
+  <%= simple_form_for @furniture do |f| %>
+    <%= f.input :name, placeholder: 'Chair' %>
+    <%= f.input :description, placeholder: 'Wooden beautiful chair' %>
+    <%= f.input :price_per_day, placeholder: '2' %>
+    <%= simple_form_for(furniture) do |f| %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <% end %>
-  </div>
+    <%= f.button :submit %>
+  <% end %>
 </div>
