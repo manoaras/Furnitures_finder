@@ -20,3 +20,12 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+.button {
+  color: white;
+  background-color: $second-color;
+  opacity: 0.35;
+}
+.button:hover {
+  opacity: 1;
+  color: white;
+}
