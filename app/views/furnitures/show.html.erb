@@ -15,22 +15,19 @@
         <h2 class="d-block mx-auto text-center"><strong><%= @furniture.name.capitalize %></strong></h2>
         <p class="text-muted d-block mx-auto text-center w-75"><%= @furniture.description %></p>
       </div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 20%;">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner" style="height: 1%;">
+        <div class="carousel-inner">
+        <% @furniture.photos.each do |photo| %>
           <div class="carousel-item active">
-            <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100 mx-auto" alt="" style="object-fit: cover;">
+              <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100 mx-auto" alt="" style="object-fit: cover;">
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
           </div>
-          <div class="carousel-item">
-            <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100 mx-auto" alt="" style="object-fit: cover;">
-          </div>
-          <div class="carousel-item">
-            <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100 mx-auto" alt="" style="object-fit: cover;">
-          </div>
+        <% end %>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -57,14 +54,13 @@
           <h3>More information...</h3>
 
           <!-- card -->
-          <div class="card p-3 m-15">
+          <div class="card p-3 m-15 rounded-3">
             <p><strong><%= @furniture.description %></strong></p>
-            <p><strong>Lorem ipsum</strong></p>
-            <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nam ea! Ipsam, autem esse minus alias perspiciatis dolorum asperiores harum facilis cum consequuntur, quis earum, rerum facere doloremque est ducimus.</small></p>
-            <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nam ea! Ipsam, autem esse minus alias perspiciatis dolorum asperiores harum facilis cum consequuntur, quis earum, rerum facere doloremque est ducimus.</small></p>
-            <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nam ea! Ipsam, autem esse minus alias perspiciatis dolorum asperiores harum facilis cum consequuntur, quis earum, rerum facere doloremque est ducimus.</small></p>
-            <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nam ea! Ipsam, autem esse minus alias perspiciatis dolorum asperiores harum facilis cum consequuntur, quis earum, rerum facere doloremque est ducimus.</small></p>
-            <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nam ea! Ipsam, autem esse minus alias perspiciatis dolorum asperiores harum facilis cum consequuntur, quis earum, rerum facere doloremque est ducimus.</small></p>
+            <p><strong>Room of choice delivery:</strong></p>
+            <p><small>
+              Delivery rates start at 5€. Your order will be delivered to one room of your choice. Please select the delivery date and time window that works best for you. You will receive a call from the independent delivery provider confirming your delivery date and 4 hour time window. Your signature is required to receive your order.
+              Once you receive confirmation your order is on its way, the independent delivery provider will call the evening prior to your scheduled delivery date to provide you with a four hour window.
+            </small></p>
           </div>
 
         </div>
@@ -177,5 +173,3 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-
-
