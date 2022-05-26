@@ -15,23 +15,25 @@
         <h2 class="d-block mx-auto text-center"><strong><%= @furniture.name.capitalize %></strong></h2>
         <p class="text-muted d-block mx-auto text-center w-75"><%= @furniture.description %></p>
       </div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 20%;">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner" style="height: 1%;">
-          <div class="carousel-item active">
-            <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100 mx-auto" alt="" style="object-fit: cover;">
-          </div>
-          <div class="carousel-item">
-            <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100 mx-auto" alt="" style="object-fit: cover;">
-          </div>
-          <div class="carousel-item">
-            <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000" class="d-block w-100 mx-auto" alt="" style="object-fit: cover;">
-          </div>
+
+        <div class="carousel-inner">
+          <% @furniture.photos.each_with_index do |photo, i|  %>
+            <% if i == 0 %>
+              <div class="carousel-item active">
+            <% else %>
+              <div class="carousel-item">
+            <% end %>
+              <div class="w-100"><%= cl_image_tag photo.key %></div>
+              </div>
+          <% end %>
         </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -57,14 +59,13 @@
           <h3>More information...</h3>
 
           <!-- card -->
-          <div class="card p-3 m-15">
+          <div class="card p-3 m-15 rounded-3">
             <p><strong><%= @furniture.description %></strong></p>
-            <p><strong>Lorem ipsum</strong></p>
-            <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nam ea! Ipsam, autem esse minus alias perspiciatis dolorum asperiores harum facilis cum consequuntur, quis earum, rerum facere doloremque est ducimus.</small></p>
-            <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nam ea! Ipsam, autem esse minus alias perspiciatis dolorum asperiores harum facilis cum consequuntur, quis earum, rerum facere doloremque est ducimus.</small></p>
-            <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nam ea! Ipsam, autem esse minus alias perspiciatis dolorum asperiores harum facilis cum consequuntur, quis earum, rerum facere doloremque est ducimus.</small></p>
-            <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nam ea! Ipsam, autem esse minus alias perspiciatis dolorum asperiores harum facilis cum consequuntur, quis earum, rerum facere doloremque est ducimus.</small></p>
-            <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nam ea! Ipsam, autem esse minus alias perspiciatis dolorum asperiores harum facilis cum consequuntur, quis earum, rerum facere doloremque est ducimus.</small></p>
+            <p><strong>Room of choice delivery:</strong></p>
+            <p><small>
+              Delivery rates start at 5€. Your order will be delivered to one room of your choice. Please select the delivery date and time window that works best for you. You will receive a call from the independent delivery provider confirming your delivery date and 4 hour time window. Your signature is required to receive your order.
+              Once you receive confirmation your order is on its way, the independent delivery provider will call the evening prior to your scheduled delivery date to provide you with a four hour window.
+            </small></p>
           </div>
 
         </div>
@@ -81,8 +82,9 @@
                 </div>
               </div>
 
-              <div class="all checkout">
-                  <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto">
+              <div class="all checkout" data-controller="dynamic-booking-price"
+                        data-dynamic-booking-price-night-value="<%= @furniture.price_per_day %>">
+                  <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto justify-content-center">
 
                     <%= simple_form_for [@furniture, @booking],
                     html: {
@@ -96,7 +98,9 @@
                         input_html: {
                           data:
                           {
-                            flatpickr_target: 'startDateInput'
+                            flatpickr_target: 'startDateInput',
+                            dynamic_booking_price_target: 'startDateInput',
+                            action: 'change->dynamic-booking-price#update'
                           }
                         } %></p>
                       </div>
@@ -105,7 +109,9 @@
                         as: :string,
                         input_html: {
                           data: {
-                            flatpickr_target: 'endDateInput'
+                            flatpickr_target: 'endDateInput',
+                            dynamic_booking_price_target: 'endDateInput',
+                            action: 'change->dynamic-booking-price#update'
                           }
                         } %></p>
                       </div>
@@ -114,12 +120,13 @@
                     </div>
                   </div>
 
+
                   <div class="d-flex justify-content-between bd-highlight">
                     <div class="p-2 bd-highlight">
-                      <p><strong>Total</strong></p>
+                      <p><strong>Total</strong> duty free</p>
                     </div>
                     <div class="p-2 bd-highlight">
-                      <p>110 €</p>
+                      <p> <span data-dynamic-booking-price-target="priceHolder"></span> €</p>
                     </div>
                   </div>
 
@@ -146,7 +153,7 @@
                       <p><strong>Total</strong></p>
                     </div>
                     <div class="p-2 bd-highlight">
-                      <p><strong><%= 119.95%> €</strong></p>
+                      <p><strong><span data-dynamic-booking-price-target="totalPriceHolder"></span> €</strong></p>
                     </div>
                   </div>
                 <% end %>
@@ -177,5 +184,3 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-
-
