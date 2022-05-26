@@ -24,7 +24,9 @@ user2 = User.new(
 user1.save!
 user2.save!
 
+
 randomize_user = [ user1, user2 ]
+
 
 furnitures = [
   {
@@ -166,7 +168,7 @@ furnitures = [
     city: "Bordeaux"
   }
 ]
-
+puts 'furnitures ?'
 furnitures.each do |furniture|
   fur = Furniture.new(furniture)
   fur.user = randomize_user.sample

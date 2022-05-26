@@ -8,12 +8,19 @@
 @import "icon";
 @import "logo";
 @import "button";
+@import "form_login";
+@import "form_register";
+@import "form_password";
 
 body {
-  background-color: #476a7653;
+  background-color: #EDEBE6;
   font-family: 'Lato', sans-serif;
 }
 
 h2{
   font-family: 'Lato', sans-serif;
+}
+
+a{
+  color: #01607F;
 }
