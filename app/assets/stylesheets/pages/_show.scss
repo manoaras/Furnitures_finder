@@ -13,8 +13,8 @@
 }
 
 .container > .row > .col-md-8{
-  margin: auto
-;}
+  margin: auto;
+}
 
 .alert.alert-warning.mt-1{
   margin: 10px;
@@ -58,19 +58,15 @@
 
 .placeholder-padding {
 padding-left: 15px;
-padding-top: 8px;
 outline: none;
 }
 
 //////////////////////////
 
-.carousel{
+.carousel {
   height: 350px;
 }
 
-.carousel-inner{
+.carousel-inner {
   height: 350px;
-  & img{
-    // object-position: ;
-  }
 }
