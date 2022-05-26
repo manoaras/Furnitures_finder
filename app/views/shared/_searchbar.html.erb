@@ -1,6 +1,15 @@
 <div class="border border-secondary rounded-pill d-flex p-2">
   <button type="button" class="border-0 border-end border-secondary bg-transparent">Localisation</button>
-  <button type="button" class="border-0 border-end border-secondary bg-transparent">Duration</button>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+      Duration
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li><button class="dropdown-item" type="button">Action</button></li>
+      <li><button class="dropdown-item" type="button">Another action</button></li>
+      <li><button class="dropdown-item" type="button">Something else here</button></li>
+    </ul>
+  </div>
   <form action="/furnitures" method="get">
     <input type="text" name="search" class="border-0 border-end border-secondary bg-transparent placeholder-padding" placeholder='Small table, chair...' style='font-style: italic;'/>
     <button name="button" type="submit" class="border-0 bg-transparent">
