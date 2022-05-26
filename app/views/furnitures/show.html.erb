@@ -83,12 +83,31 @@
 
               <div class="all checkout">
                   <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto">
-                    <%= simple_form_for([@furniture, @booking]) do |f| %>
-                      <div class="bd-highlight d-flex mx-auto border border-1">
-                        <p class="border-right mx-auto"><%= f.input :start_date %></p>
+
+                    <%= simple_form_for [@furniture, @booking],
+                    html: {
+                      data: {
+                        controller: 'flatpickr'
+                      }
+                    } do |f| %>
+                      <div class="flex-grow-1 bd-highlight d-flex mx-auto">
+                        <p class="border-right mx-auto"><%= f.input :start_date,
+                        as: :string,
+                        input_html: {
+                          data:
+                          {
+                            flatpickr_target: 'startDateInput'
+                          }
+                        } %></p>
                       </div>
-                      <div class="bd-highlight border-left d-flex mx-auto border border-1">
-                        <p class="border-left mx-auto"><%= f.input :end_date %></p>
+                      <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
+                        <p class="border-left mx-auto"><%= f.input :end_date,
+                        as: :string,
+                        input_html: {
+                          data: {
+                            flatpickr_target: 'endDateInput'
+                          }
+                        } %></p>
                       </div>
                     <div class="d-flex mx-auto mt-4">
                       <%= f.submit "Book it", class: "btn btn-primary mx-auto w-100" %>

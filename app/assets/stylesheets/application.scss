@@ -6,9 +6,14 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "pages/show";
 @import "pages/showbook";
+
+@function get-breakpoints($key: "md") {
+  @return map-get($container-max-widths, $key);
+}
