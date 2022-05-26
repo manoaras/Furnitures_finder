@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="dynamic-booking-price"
 export default class extends Controller {
 // retrieve the three needed targets
-static targets = [ 'startDateInput', 'endDateInput', 'priceHolder' ]
+static targets = [ 'startDateInput', 'endDateInput', 'priceHolder', 'totalPriceHolder' ]
 // retrieve the pokemon's price_per_day value
 static values = { night: Number }
 
