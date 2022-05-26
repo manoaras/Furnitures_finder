@@ -12,3 +12,7 @@
 @import "pages/index";
 @import "pages/show";
 @import "pages/showbook";
+
+@function get-breakpoints($key: "md") {
+  @return map-get($container-max-widths, $key);
+}
