@@ -7,7 +7,7 @@
   align-items: center;
   width: 300px;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin: 30px 8px;
 }
 
 .card-product > img {
@@ -36,7 +36,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
-  padding-top: 8px;
+  padding: 8px 16px;
 }
 
 .card-product-infos .card-product-user {
