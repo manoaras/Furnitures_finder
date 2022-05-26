@@ -12,10 +12,18 @@
   </head>
 
   <body class="bg-light">
-    <%= link_to "Back to your search", furnitures_path %>
+  <br>
+    <div class="secondary-button">
+        <a href="<%= furnitures_path %>">
+          <i class="fa-solid fa-angles-left"></i>
+        </a>
+        <%= link_to " Back ", furnitures_path %>
+    </div>
+    <br>
+    <br>
 
     <!-- furniture title and photos -->
-    <div class="card p-6 bg-white w-75 d-block mx-auto">
+    <div class="card p-6 w-75 d-block mx-auto">
       <div class="card-body d-block mx-auto">
         <h2 class="d-block mx-auto text-center"><strong><%= @furniture.name.capitalize %></strong></h2>
         <p class="text-muted d-block mx-auto text-center"><%= @furniture.description %></p>
@@ -82,15 +90,13 @@
             <div class="row">
               <div class="d-flex justify-content-between bd-highlight mt-2">
                 <div class="bd-highlight">
-                  <p><strong>Price per months</strong></p>
-                </div>
-                <div class="bd-highlight">
-                  <p><%= @furniture.price_per_day %> €</p>
+                  <p><strong><%= @furniture.price_per_day %> €</strong> /month</p>
                 </div>
               </div>
 
               <div class="all checkout">
                   <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto">
+
                     <%= simple_form_for [@furniture, @booking], data: { controller: "flatpickr" } do |f| %>
                       <div class="flex-grow-1 bd-highlight d-flex mx-auto">
                         <p class="border-right mx-auto"><%= f.input :start_date, as: :string, required: false, input_html: { class: "datepickr" } %></p>
