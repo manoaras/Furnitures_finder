@@ -1,0 +1,43 @@
+.content-create-furniture{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 75px;
+
+}
+
+.create-furniture{
+  width: 500px;
+  border-radius: 5px;
+  padding: 19px;
+  background-color: #ffff;
+  box-shadow: 6px 4px 14px -6px rgba(0,0,0,0.59);
+
+  h2{
+    text-align: center;
+    margin: 15px;
+  }
+
+}
+
+.create-furniture-submit{
+  background-color: #01607F;
+  margin: 0 auto;
+  width:  130px;
+  color: #ffff;
+  border-radius: 30px;
+  text-align: center;
+
+
+  .btn{
+    color: #ffff;
+    padding: 12px;
+    justify-content: center;
+  align-items: center;
+  }
+
+  a{
+    margin-top: 30px;
+  }
+}
