@@ -1,11 +1,10 @@
 <h6 class="d-block mx-auto text-center">Details of your order</h6>
 
-<h1 class="d-block mx-auto text-center"><%= @furniture.name.capitalize %></h1>
-
 <div class="card-product-2 d-flex mx-auto w-50 top-50">
   <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
-  <div class="card-product-2-infos">
-    <h5><strong><%= @furniture.description %></strong></h5>
+  <div class="card-product-2-infos px-3">
+    <h1 class="d-block mx-auto"><%= @furniture.name.capitalize %></h1>
+    <br>
     <p> Price per day: <%= @furniture.price_per_day %> €</p>
     <p> Start date of rent: <%= @booking.start_date %></p>
     <p> End date of rent: <%= @booking.end_date %></p>
@@ -37,22 +36,6 @@
   <div class="col align-self-center row align-items-start">
     <div class= "col status">
       Pending
-      <div class="card-product-2 d-flex top-25" style="height: 20%;">
-        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
-        <div class="card-product-2-infos">
-          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
-          <p> Price per day: <%= @furniture.price_per_day %> €</p>
-          <p> Total price: 500 €</p>
-        </div>
-      </div>
-      <div class="card-product-2 d-flex top-25" style="height: 20%;">
-        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
-        <div class="card-product-2-infos">
-          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
-          <p> Price per day: <%= @furniture.price_per_day %> €</p>
-          <p> Total price: 500 €</p>
-        </div>
-      </div>
       <div class="card-product-2 d-flex top-25" style="height: 20%;">
         <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
         <div class="card-product-2-infos">
@@ -93,14 +76,6 @@
     <!-- refused bookings -->
     <div class= "col status">
       Refused
-      <div class="card-product-2 d-flex top-25" style="height: 20%;">
-        <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
-        <div class="card-product-2-infos">
-          <h5><strong><%= @furniture.name.capitalize %></strong></h5>
-          <p> Price per day: <%= @furniture.price_per_day %> €</p>
-          <p> Total price: 500 €</p>
-        </div>
-      </div>
       <div class="card-product-2 d-flex top-25" style="height: 20%;">
         <img src="https://picsum.photos/id/<%= @furniture.id %>/1000/1000"/>
         <div class="card-product-2-infos">
