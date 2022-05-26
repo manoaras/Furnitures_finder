@@ -94,8 +94,9 @@
                 </div>
               </div>
 
-              <div class="all checkout">
-                  <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto">
+              <div class="all checkout" data-controller="dynamic-booking-price"
+                        data-dynamic-booking-price-night-value="<%= @furniture.price_per_day %>">
+                  <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto justify-content-center">
 
                     <%= simple_form_for [@furniture, @booking],
                     html: {
@@ -109,7 +110,9 @@
                         input_html: {
                           data:
                           {
-                            flatpickr_target: 'startDateInput'
+                            flatpickr_target: 'startDateInput',
+                            dynamic_booking_price_target: 'startDateInput',
+                            action: 'change->dynamic-booking-price#update'
                           }
                         } %></p>
                       </div>
@@ -118,7 +121,9 @@
                         as: :string,
                         input_html: {
                           data: {
-                            flatpickr_target: 'endDateInput'
+                            flatpickr_target: 'endDateInput',
+                            dynamic_booking_price_target: 'endDateInput',
+                            action: 'change->dynamic-booking-price#update'
                           }
                         } %></p>
                       </div>
@@ -127,12 +132,13 @@
                     </div>
                   </div>
 
+
                   <div class="d-flex justify-content-between bd-highlight">
                     <div class="p-2 bd-highlight">
-                      <p><strong>Total</strong></p>
+                      <p><strong>Total</strong> duty free</p>
                     </div>
                     <div class="p-2 bd-highlight">
-                      <p>110 €</p>
+                      <p> <span data-dynamic-booking-price-target="priceHolder"></span> €</p>
                     </div>
                   </div>
 
@@ -159,7 +165,7 @@
                       <p><strong>Total</strong></p>
                     </div>
                     <div class="p-2 bd-highlight">
-                      <p><strong><%= 119.95%> €</strong></p>
+                      <p><strong><span data-dynamic-booking-price-target="totalPriceHolder"></span> €</strong></p>
                     </div>
                   </div>
                 <% end %>
