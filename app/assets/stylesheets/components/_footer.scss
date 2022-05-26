@@ -1,3 +1,9 @@
+body {
+  min-height:100vh; /* 1 */
+	display:flex; /* 2 */
+	flex-direction:column; /* 3 */
+}
+
 .footer {
   position: static;
   background-color: white;

@@ -7,24 +7,22 @@
   <h2 class="title-index">See all our furnitures</h2>
 </div>
 
+<div class="row">
+  <% @furnitures.each do |furniture| %>
+    <div class="col-4">
+      <a href="<%= furniture_path(furniture.id)%>">
+        <div class="card-product">
 
-  <div class="row">
-    <% @furnitures.each do |furniture| %>
-      <div class="col-4">
-        <a href="<%= furniture_path(furniture.id)%>">
-          <div class="card-product">
-
-            <img src="https://picsum.photos/id/<%= furniture.id %>/1000/1000" />
-            <div class="card-product-infos">
-              <div class="card-product-infos-left mt-3">
-                <h2><%=furniture.name.capitalize%></h2>
-              </div>
-              <h2 class="card-product-pricing"><%= furniture.price_per_day %>€</h2>
-              <img src="https://i.pravatar.cc/150?img=<%= furniture.id %>" class="card-product-user avatar-bordered" />
+          <img src="https://picsum.photos/id/<%= furniture.id %>/1000/1000" />
+          <div class="card-product-infos">
+            <div class="card-product-infos-left mt-3">
+              <h2><%=furniture.name.capitalize%></h2>
             </div>
+            <h2 class="card-product-pricing"><%= furniture.price_per_day %>€</h2>
+            <img src="https://i.pravatar.cc/150?img=<%= furniture.id %>" class="card-product-user avatar-bordered" />
           </div>
-        </a>
-      </div>
-    <% end %>
-  </div>
+        </div>
+      </a>
+    </div>
+  <% end %>
 </div>
