@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon border border-white d-flex justify-content-between mb-3 p-3">
     <%= link_to root_path, class: "navbar-brand" do %>
     <img class="house" src="https://res.cloudinary.com/do9ctd3bd/image/upload/v1653487144/Capture_d_e%CC%81cran_2022-05-25_a%CC%80_15.27.18_jwrhub.png" alt="">
-      
+
     <% end %>
 
     <%= render "shared/searchbar" %>
@@ -9,9 +9,6 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto border border-1 rounded-pill border-secondary">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Tout les meubles", furnitures_path, class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

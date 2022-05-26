@@ -1,6 +1,6 @@
 <%= simple_form_for @furniture do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price_per_day %>
+  <%= f.input :name, placeholder: 'Chair' %>
+  <%= f.input :description, placeholder: 'Wooden beautiful chair' %>
+  <%= f.input :price_per_day, placeholder: '2' %>
   <%= f.button :submit %>
 <% end %>
