@@ -1,19 +1,27 @@
 // Specific CSS for your home-page
 @import "home-banner";
 
+a{
+  text-decoration: none;
+}
+
+.text-center {
+  margin-top: 1rem;
+}
+
 .card-product {
   height: 300px;
   background: #F4F4F4;
-  align-items: center;
-  width: 300px;
-  flex-direction: column;
-  margin: 30px 8px;
+  margin: 20px 0;
+  border-radius: 18px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-product > img {
-  height: 240px;
+  height: 230px;
   width: 100%;
-  border-radius: 18px;
+  border-radius: 18px 18px 0 0;
+  object-fit: cover;
 }
 
 .card-product h2 {
@@ -23,11 +31,11 @@
   color: black;
 }
 
-.card-product > p {
+.card-product-infos-left > p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
-  margin-top: 8px;
+  margin-bottom: 0 !important;
 }
 
 .card-product .card-product-infos {
@@ -43,17 +51,4 @@
   right: 16px;
   top: -20px;
   width: 40px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0px;
-}
-
-a{
-  text-decoration: none;
-}
-
-.text-center {
-  margin-top: 1rem;
 }

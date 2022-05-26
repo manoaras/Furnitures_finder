@@ -1,9 +1,8 @@
 // Specific CSS for your show-page
 
 .card.p-3.mt-1{
-  border-radius: 15px;
+  border-radius: 26px;
   background: #ffffff;
-  box-shadow:  31px 31px 98px #e3e3e3, -31px -31px 98px #ffffff;
   padding: 10px;
 }
 
@@ -61,4 +60,17 @@
 padding-left: 15px;
 padding-top: 8px;
 outline: none;
+}
+
+//////////////////////////
+
+.carousel{
+  height: 350px;
+}
+
+.carousel-inner{
+  height: 350px;
+  & img{
+    // object-position: ;
+  }
 }

@@ -1,0 +1,41 @@
+.btn-new-furniture{
+  color: #e9aa01;
+  font-weight: 400;
+  font-size: 19px;
+  padding: 12px;
+  border: none;
+  background-color: #ffff;
+  border-radius: 5px;
+  margin-left: 25px;
+  transition: .5s;
+  position: absolute;
+  top: 0;
+  right: 17px;
+  // bottom: 8px;
+  right: 161px;
+}
+
+.btn-new-furniture:hover{
+
+  background-color: #015f7f;
+  color: #ffff;
+}
+
+.see-all {
+  // display: flex;
+  // justify-content: space-between;
+  position: relative;
+  margin-top: 40px;
+  margin-left: 25px;
+
+}
+
+.title-index {
+  margin-top: 18px;
+  border-bottom: 3px solid #0000;
+}
+
+
+// .see-all {
+//   margin-top: 25px;
+// }
