@@ -23,6 +23,8 @@ user2 = User.new(
 user1.save!
 user2.save!
 
+puts 'user finish'
+
 furnitures = [
   {
     description: "A clean look that’s easy to like and mix with other styles, either supporting a desk or standing alone. The back is finished so you can place it in the middle of the room – all sides are just as beautiful.",
@@ -186,7 +188,7 @@ furnitures = [
     city: "Bordeaux"
   }
 ]
-
+puts 'furnitures ?'
 furnitures.each do |furniture|
   Furniture.new(furniture).save!
 end
