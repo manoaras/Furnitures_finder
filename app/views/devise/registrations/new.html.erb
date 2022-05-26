@@ -1,38 +1,42 @@
-<h2>Sign up</h2>
+<div class="form-container-registration">
+    <div class="form-registration">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
-  <%= f.error_notification %>
+      <h2>Sign up</h2>
 
-  <div class="form-inputs">
-    <%= f.input :first_name,
-                placeholder: "Jean-Michel",
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "First Name" }%>
-    <%= f.input :last_name,
-                placeholder: "Dupont",
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Last Name" }%>
-    <%= f.input :email,
-                placeholder: "jm-dupont@gmail.com",
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                placeholder: "bieres&gonzesses",
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                placeholder: "bieres&gonzesses",
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+        <%= f.error_notification %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+        <div class="form-inputs">
+          <%= f.input :first_name,
+                      placeholder: "Jean-Michel",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "First Name" }%>
+          <%= f.input :last_name,
+                      placeholder: "Dupont",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Last Name" }%>
+          <%= f.input :email,
+                      placeholder: "jm-dupont@gmail.com",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      placeholder: "bieres&gonzesses",
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      placeholder: "bieres&gonzesses",
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
 
-<%= render "devise/shared/links" %>
+        <div class="submit-registration">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+      <% end %>
+        <%= render "devise/shared/links" %>
+    </div>
+</div>
