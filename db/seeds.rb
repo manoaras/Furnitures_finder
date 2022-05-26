@@ -8,13 +8,13 @@ Furniture.destroy_all
 User.destroy_all
 puts "DB cleaned"
 
-user1 = User.new(
+User.new(
   first_name: "Sylvie",
   last_name: "Nolan",
   email: "sylvie.nolan@laposte.net",
   password: "sylviiie"
 )
-user2 = User.new(
+User.new(
   first_name: "Georges",
   last_name: "Bondel",
   email: "georges.bondel@yahoo.fr",
