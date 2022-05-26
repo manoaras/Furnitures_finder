@@ -5,22 +5,27 @@
 
   <div class="form-inputs">
     <%= f.input :first_name,
+                placeholder: "Jean-Michel",
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "First Name" }%>
     <%= f.input :last_name,
+                placeholder: "Dupont",
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "Last Name" }%>
     <%= f.input :email,
+                placeholder: "jm-dupont@gmail.com",
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
+                placeholder: "bieres&gonzesses",
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
+                placeholder: "bieres&gonzesses",
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
