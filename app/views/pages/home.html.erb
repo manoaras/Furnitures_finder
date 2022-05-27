@@ -7,7 +7,7 @@
         <a href="<%= furniture_path(furniture.id)%>">
           <div class="card-product">
 
-            <img src="https://picsum.photos/id/<%= furniture.id %>/1000/1000" />
+            <%= cl_image_tag furniture.photos.first.key, height: 300, width: 400, crop: :fill %>
             <div class="card-product-infos">
               <div class="card-product-infos-left mt-3">
                 <h2><%=furniture.name.capitalize%></h2>
