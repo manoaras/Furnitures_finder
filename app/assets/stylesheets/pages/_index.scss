@@ -1,2 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
+
+#map {
+  border: 10px solid white;
+  border-radius: 2px;
+}
