@@ -80,7 +80,7 @@
             <div class="row">
               <div class="d-flex justify-content-between bd-highlight mt-2">
                 <div class="bd-highlight">
-                  <p><strong><%= @furniture.price_per_day %> €</strong> /month</p>
+                  <p><strong><%= @furniture.price_per_day %> €</strong> /day</p>
                 </div>
               </div>
 
@@ -180,9 +180,3 @@
     <br>
 
     <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
-
-    <div class="clearfix">
-      <div class="spinner-border float-end" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
