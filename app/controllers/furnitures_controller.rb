@@ -8,6 +8,13 @@ skip_before_action :authenticate_user!, only: [:index, :show]
       sql_query = "furnitures.name ILIKE :query OR furnitures.description ILIKE :query"
       @furnitures = Furniture.where(sql_query, query: "%#{params[:search]}%")
     end
+    @markers = @furnitures.geocoded.map do |furniture|
+      {
+        lat: furniture.latitude,
+        lng: furniture.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {furniture: furniture})
+      }
+    end
   end
 
   def show
