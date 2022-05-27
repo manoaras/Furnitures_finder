@@ -55,3 +55,25 @@
 .secondary-button-booking a:hover{
   color: rgb(189, 157, 88);
 }
+
+#alert-pending {
+  color: rgb(197, 128, 0);
+  margin-left: 20px;
+  margin-bottom: 25px;
+}
+
+#alert-accepted {
+  color: green;
+  margin-left: 20px;
+  margin-bottom: 25px;
+}
+
+#alert-refused {
+  color: rgb(205, 0, 0);
+  margin-left: 20px;
+  margin-bottom: 25px;
+}
+
+.card-product-2 {
+  border-radius: 4px;
+}

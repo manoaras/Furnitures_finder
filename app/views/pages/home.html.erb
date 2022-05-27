@@ -13,7 +13,7 @@
                 <h2><%=furniture.name.capitalize%></h2>
               </div>
               <h2 class="card-product-pricing"><%= furniture.price_per_day %>€</h2>
-              <img src="https://i.pravatar.cc/150?img=<%= furniture.id %>" class="card-product-user avatar-bordered" />
+              <img src="https://i.pravatar.cc/150?img=<%= rand(1..10) %>" class="card-product-user avatar-bordered" />
             </div>
 
           </div>
