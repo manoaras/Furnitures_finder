@@ -1,0 +1,22 @@
+.edit-destroy{
+  padding: 15px;
+  display: inline-block;
+}
+
+.edit{
+  padding: 5px;
+  color: #035F7F;
+
+  & a{
+    font-size: 1em;
+  }
+}
+
+.edit:hover{
+  color: #e9bd5f;
+
+}
+
+.destroy-icon input{
+  background-color: #035F7F;
+}

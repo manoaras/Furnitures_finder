@@ -52,16 +52,18 @@
         <div class="col-md-8 my-5">
 
           <!-- alert (warning) -->
+
             <div class="" data-controller="timeout">
               <div class="hurry alert-warning" role="alert">
                 <strong>Hurry up !</strong> Several people are looking at this furniture every day.
               </div>
+
             </div>
 
           <h3>More information...</h3>
 
           <!-- card -->
-          <div class="card p-3 m-15 rounded-3">
+          <div class="card p-3 m-15 rounded-3  container-booking">
             <p><strong><%= @furniture.description %></strong></p>
             <p><strong>Room of choice delivery:</strong></p>
             <p><small>
@@ -70,14 +72,28 @@
             </small></p>
           </div>
 
+          <div class="edit-destroy">
+              <% if policy(@furniture).edit? %>
+            <a class="fa-solid fa-pen-to-square edit">
+                <%= link_to "Edit this furniture", edit_furniture_path(@furniture) %>
+              <% end %>
+            </a>
+            <br>
+            <div class="destroy-icon">
+              <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
+            </div>
+          </div>
+
+
+
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 ">
           <!-- checkout -->
-          <div class="card p-3 mt-1">
+          <div class="card p-3 mt-1  container-booking">
 
             <!-- make this a full length button -->
-            <div class="row">
+            <div class="row ">
               <div class="d-flex justify-content-between bd-highlight mt-2">
                 <div class="bd-highlight">
                   <p><strong><%= @furniture.price_per_day %> €</strong> /day</p>
@@ -94,8 +110,8 @@
                         controller: 'flatpickr'
                       }
                     } do |f| %>
-                      <div class="flex-grow-1 bd-highlight d-flex mx-auto">
-                        <p class="border-right mx-auto"><%= f.input :start_date,
+                      <div class="flex-grow-1 bd-highlight d-flex mx-auto ">
+                        <%= f.input :start_date,
                         as: :string,
                         input_html: {
                           data:
@@ -104,10 +120,10 @@
                             dynamic_booking_price_target: 'startDateInput',
                             action: 'change->dynamic-booking-price#update'
                           }
-                        } %></p>
+                        } %>
                       </div>
                       <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
-                        <p class="border-left mx-auto"><%= f.input :end_date,
+                        <%= f.input :end_date,
                         as: :string,
                         input_html: {
                           data: {
@@ -115,10 +131,11 @@
                             dynamic_booking_price_target: 'endDateInput',
                             action: 'change->dynamic-booking-price#update'
                           }
-                        } %></p>
+                        } %>
                       </div>
-                    <div class="d-flex mx-auto mt-4">
-                      <%= f.submit "Book it", class: "btn btn-primary mx-auto w-100" %>
+                    <div class=" mt-4 button-booking">
+                      <input type="submit" name="commit" value="Book it"  data-disable-with="Book it" class="sup-button-booking">
+                      <span></span>
                     </div>
                   </div>
 
@@ -173,10 +190,13 @@
 
     <br>
 
-    <% if policy(@furniture).edit? %>
-      <%= link_to "Edit this furniture", edit_furniture_path(@furniture) %>
-    <% end %>
 
-    <br>
+
+    <div class="clearfix">
+      <div class="spinner-border float-end" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
 
     <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
+

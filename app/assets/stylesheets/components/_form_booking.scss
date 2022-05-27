@@ -1,49 +1,18 @@
-.content-create-furniture{
-  display: flex;
+.container-booking{
+  box-shadow: 6px 7px 11px 0px rgba(0,0,0,0.21);
+}
+
+.booking_start_date {
   width: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: 75px;
-
 }
 
-.create-furniture{
-  width: 500px;
-  border-radius: 5px;
-  padding: 19px;
-  background-color: #ffff;
-  box-shadow: 6px 4px 14px -6px rgba(0,0,0,0.59);
-
-  h2{
-    text-align: center;
-    margin: 15px;
-  }
-
-}
-
-.create-furniture-submit{
-  background-color: #01607F;
-  margin: 0 auto;
-  width:  130px;
-  color: #ffff;
-  border-radius: 30px;
-  text-align: center;
-
-
-  .btn{
-    color: #ffff;
-    padding: 12px;
-    justify-content: center;
-  align-items: center;
-  }
-
-  a{
-    margin-top: 30px;
-  }
+.booking_end_date {
+  width: 100%;
 }
 
 
-.button-create {
+
+.button-booking{
   width: 200px;
   height: 50px;
   padding: 15px 0;
@@ -58,9 +27,8 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  margin-left: 27%;
 
-  & .btn-create{
+  & .sup-button-booking{
     z-index: 100;
     position: absolute;
     top: 50%;
@@ -73,12 +41,11 @@
     border: 1px solid #035F7F;
     box-shadow: 6px 7px 11px 0px rgba(0,0,0,0.21);
     color: #035F7F;
-    font-family: 'Lato', sans-serif;
-    font-weight: bolder;
+    font-weight: bold;
   }
 
-  .btn-create:hover{
-  color: #e9bd5f;
+  .sup-button-booking:hover{
+    color: #e9bd5f;
   }
 
 
@@ -91,11 +58,10 @@
     left: 0;
     bottom: 0;
     transition: 0.5s;
-    color: #ffff !important;
+    color: #ffff;
     mix-blend-mode: darken;
 
   }
-
   &:hover{
     border: none;
 
@@ -105,4 +71,5 @@
     }
 
   }
+
 }
