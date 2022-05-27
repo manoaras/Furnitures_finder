@@ -9,7 +9,7 @@
     <p> Start date of rent: <%= @booking.start_date.strftime('%d %B %Y') %></p>
     <p> End date of rent: <%= @booking.end_date.strftime('%d %B %Y') %></p>
     <br>
-    <h5> Total price: 500 €</h5>
+    <h5> Total price: <%= @booking.total_price + 9.95 %> €</h5>
   </div>
 </div>
 
