@@ -12,15 +12,19 @@
 @import "form_register";
 @import "form_password";
 @import "form_create_furniture";
+@import "form_booking";
+@import "edit_destroy";
 
 body {
   background-color: #EDEBE6;
   font-family: 'Lato', sans-serif;
 }
 
-h2{
+h1, h2, h3, h4{
   font-family: 'Lato', sans-serif;
 }
+
+
 
 a{
   color: #01607F;

@@ -6,8 +6,9 @@
     <%= f.input :description, placeholder: 'Wooden beautiful chair' %>
     <%= f.input :price_per_day, placeholder: '2' %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <div class="create-furniture-submit">
-        <%= f.button :submit, "Create" %>
+    <div class="create-furniture-submit button-create">
+        <input type="submit" name="commit" value="Create" class="btn btn-create" data-disable-with="Create">
+        <span></span>
     </div>
   <% end %>
 
