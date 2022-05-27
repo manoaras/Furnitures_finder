@@ -70,3 +70,89 @@ outline: none;
 .carousel-inner {
   height: 350px;
 }
+
+
+
+
+
+.container-booking{
+  box-shadow: 6px 7px 11px 0px rgba(0,0,0,0.21);
+}
+
+.booking_start_date {
+  width: 100%;
+}
+
+.booking_end_date {
+  width: 100%;
+}
+
+
+
+.shopping-btn{
+  width: 200px;
+  // height: 50px;
+  padding: 25px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  // border: 1px solid #035F7F;
+  box-shadow: 6px 7px 11px 0px rgba(0,0,0,0.21);
+  background: transparent;
+  color: #035F7F;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+
+  & .create-shopping{
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 12px;
+    border-radius: 50px;
+    background: transparent;
+    border: 1px solid #035F7F;
+    box-shadow: 6px 7px 11px 0px rgba(0,0,0,0.21);
+    color: #035F7F;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .create-shopping:hover{
+    color: #e9bd5f;
+  }
+
+
+  & span{
+    background: #035F7F;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.5s;
+    color: #ffff;
+    mix-blend-mode: darken;
+
+  }
+  &:hover{
+    border: none;
+
+    & span{
+  width: 100%;
+
+    }
+
+  }
+
+}
