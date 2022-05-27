@@ -1,6 +1,6 @@
 <h6 class="d-block mx-auto text-center">Details of your order</h6>
 
-<div class="card-product-2 d-flex mx-auto w-50 top-50">
+<div class="card-product-2 d-flex mx-auto w-50 top-50 image-pending">
   <%= cl_image_tag @furniture.photos.first.key %>
   <div class="card-product-2-infos px-3">
     <h1 class="d-block mx-auto"><%= @furniture.name.capitalize %></h1>
@@ -19,11 +19,13 @@
 
 <div class="d-flex justify-content-center">
   <div style="display: inline-block">
-    <div class="mt-4 button-booking">
-      <%= link_to "🛍️ Continue your shopping 🛍️", furnitures_path %>
+    <div class="shopping-btn">
+      <a class="create-shopping" href="/furnitures">Continue your shopping </a>
+      <span></span>
     </div>
-    <div class="mt-4 button-booking">
-      <%= link_to "💰 Pay 💰", furnitures_path %>
+    <div class="shopping-btn">
+        <a class="create-shopping" href="/furnitures">Pay</a>
+        <span></span>
     </div>
     <br>
     <br>
@@ -34,11 +36,13 @@
 <br>
 <!-- other bookings -->
     <!-- pending bookings -->
-<div class="container-dashboard d-flex row m-10">
+<div class="container-dashboard d-flex row m-10 card-radius">
   <div class="col align-self-center row align-items-start">
     <div class= "col status">
+
       <span id="alert-pending">PENDING...</span>
-      <div class="card-product-2 d-flex top-25" style="height: 130px;">
+      <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
+
         <img src="https://www.backmarket.fr/cdn-cgi/image/format=auto,quality=75,width=640/https://d1eh9yux7w8iql.cloudfront.net/product_images/1550669984.39.jpg"/>
         <div class="card-product-2-infos">
           <h5><strong>Mini fridge</strong></h5>
@@ -49,8 +53,11 @@
     </div>
       <!-- accepted bookings -->
     <div class= "col status">
+
       <span id="alert-accepted"><i class="fa-solid fa-check"></i>  ACCEPTED</span>
-      <div class="card-product-2 d-flex top-25" style="height: 130px;">
+
+      <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
+
         <img src="https://cdn11.bigcommerce.com/s-dj46qhetxl/images/stencil/1280x1280/products/123693/272711/Dispatcher_RequestType_Image&Name_CGS700P4MW2_brushed_bronze__02882.1634383103.jpg?c=1"/>
         <div class="card-product-2-infos">
           <h5><strong>Oven</strong></h5>
@@ -58,7 +65,7 @@
           <p> Total price: 300 €</p>
         </div>
       </div>
-      <div class="card-product-2 d-flex top-25" style="height: 130px;">
+      <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
         <img src="https://cdn.ambientedirect.com/chameleon/mediapool/thumbs/e/14/Artemide_Choose-Tavolo-Tischleuchte_800x800-ID1244137-a109b53693cae4c9af9e6a800a919360.jpg"/>
         <div class="card-product-2-infos">
           <h5><strong>Lamp</strong></h5>
@@ -66,7 +73,7 @@
           <p> Total price: 50 €</p>
         </div>
       </div>
-      <div class="card-product-2 d-flex top-25" style="height: 130px;">
+      <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
         <img src="https://images.ctfassets.net/zxh1oxiwsvcc/5hzBgcH1BrEhkXWSWtrdJt/a66e7e84688a4b7269c4417e05692824/3fede66c435f024a12d1cd366280dd62-3a2b9fd.jpg"/>
         <div class="card-product-2-infos">
           <h5><strong>Bed table</strong></h5>
@@ -77,8 +84,11 @@
     </div>
     <!-- refused bookings -->
     <div class= "col status">
+
       <span id="alert-refused"><i class="fa-solid fa-xmark"></i>  REFUSED</span>
-      <div class="card-product-2 d-flex top-25" style="height: 130px;">
+
+      <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
+
         <img src="https://www.nomacool.fr/frontend/files/products/source/topbc145-frigo-table-top-bc-145-5.jpg"/>
         <div class="card-product-2-infos">
           <h5><strong> Little fridge </strong></h5>
@@ -86,7 +96,7 @@
           <p> Total price: 100 €</p>
         </div>
       </div>
-      <div class="card-product-2 d-flex top-25" style="height: 130px;">
+      <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
         <img src="https://www.collinsdictionary.com/images/full/chair_583020097_1000.jpg"/>
         <div class="card-product-2-infos">
           <h5><strong>Chair</strong></h5>
