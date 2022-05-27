@@ -8,6 +8,7 @@
     <p> Price per day: <%= @furniture.price_per_day %> €</p>
     <p> Start date of rent: <%= @booking.start_date.strftime('%d %B %Y') %></p>
     <p> End date of rent: <%= @booking.end_date.strftime('%d %B %Y') %></p>
+    <p style="color: orange">Status: pending</p>
     <br>
     <h5> Total price: <%= @booking.total_price + 9.95 %> €</h5>
   </div>
@@ -36,7 +37,7 @@
 <div class="container-dashboard d-flex row m-10">
   <div class="col align-self-center row align-items-start">
     <div class= "col status">
-      <span id="alert-pending">Pending</span>
+      <span id="alert-pending">PENDING...</span>
       <div class="card-product-2 d-flex top-25" style="height: 130px;">
         <img src="https://www.backmarket.fr/cdn-cgi/image/format=auto,quality=75,width=640/https://d1eh9yux7w8iql.cloudfront.net/product_images/1550669984.39.jpg"/>
         <div class="card-product-2-infos">
@@ -48,7 +49,7 @@
     </div>
       <!-- accepted bookings -->
     <div class= "col status">
-      <span id="alert-accepted">Accepted</span>
+      <span id="alert-accepted"><i class="fa-solid fa-check"></i>  ACCEPTED</span>
       <div class="card-product-2 d-flex top-25" style="height: 130px;">
         <img src="https://cdn11.bigcommerce.com/s-dj46qhetxl/images/stencil/1280x1280/products/123693/272711/Dispatcher_RequestType_Image&Name_CGS700P4MW2_brushed_bronze__02882.1634383103.jpg?c=1"/>
         <div class="card-product-2-infos">
@@ -76,7 +77,7 @@
     </div>
     <!-- refused bookings -->
     <div class= "col status">
-      <span id="alert-refused">Refused</span>
+      <span id="alert-refused"><i class="fa-solid fa-xmark"></i>  REFUSED</span>
       <div class="card-product-2 d-flex top-25" style="height: 130px;">
         <img src="https://www.nomacool.fr/frontend/files/products/source/topbc145-frigo-table-top-bc-145-5.jpg"/>
         <div class="card-product-2-infos">
