@@ -190,13 +190,10 @@
 
     <br>
 
-
-
-    <div class="clearfix">
+    <%# <div class="clearfix">
       <div class="spinner-border float-end" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
-    </div>
+    </div> %>
 
     <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
-
