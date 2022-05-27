@@ -15,7 +15,7 @@
         <h2 class="d-block mx-auto text-center"><strong><%= @furniture.name.capitalize %></strong></h2>
         <p class="text-muted d-block mx-auto text-center w-75"><%= @furniture.description %></p>
       </div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -29,7 +29,7 @@
             <% else %>
               <div class="carousel-item">
             <% end %>
-              <div class="w-100"><%= cl_image_tag photo.key %></div>
+                <div class="cover center w-100"><%= cl_image_tag photo.key %></div>
               </div>
           <% end %>
         </div>
@@ -52,8 +52,12 @@
         <div class="col-md-8 my-5">
 
           <!-- alert (warning) -->
-            <div class="alert alert-warning" role="alert">
-              <strong>Hurry up !</strong> Several people are looking at this furniture every day.
+
+            <div class="" data-controller="timeout">
+              <div class="hurry alert-warning" role="alert">
+                <strong>Hurry up !</strong> Several people are looking at this furniture every day.
+              </div>
+
             </div>
 
           <h3>More information...</h3>
@@ -92,7 +96,7 @@
             <div class="row ">
               <div class="d-flex justify-content-between bd-highlight mt-2">
                 <div class="bd-highlight">
-                  <p><strong><%= @furniture.price_per_day %> €</strong> /month</p>
+                  <p><strong><%= @furniture.price_per_day %> €</strong> /day</p>
                 </div>
               </div>
 
@@ -188,10 +192,11 @@
 
 
 
-
-
     <div class="clearfix">
       <div class="spinner-border float-end" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
+
+    <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
+
