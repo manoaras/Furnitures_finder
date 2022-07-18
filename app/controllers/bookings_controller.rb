@@ -21,6 +21,24 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.total_price = @furniture.price_per_day * ((Time.parse(@booking.end_date.to_s).to_i - Time.parse(@booking.start_date.to_s).to_i) / (60*60*24))
     authorize @booking
+
+    if @booking.save!
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [{
+          name: @furniture.id,
+          amount: @booking.total_price * 100,
+          currency: 'eur',
+          quantity: 1
+        }],
+        success_url: booking_url(@booking),
+        cancel_url: booking_url(@booking)
+      )
+      @booking.update(checkout_session_id: session.id)
+      redirect_to new_furniture_payment_path(@booking)
+    end
+
+
     if @booking.save!
       flash[:alert] = "Booking confirmed"
       redirect_to booking_path(@booking)
