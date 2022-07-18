@@ -8,29 +8,34 @@
 
         <div class="form-inputs">
           <%= f.input :first_name,
-                      placeholder: "Jean-Michel",
+                      placeholder: "First name",
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "First Name" }%>
+                      input_html: { autocomplete: "First Name" },
+                      label: false %>
           <%= f.input :last_name,
-                      placeholder: "Dupont",
+                      placeholder: "Last name",
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "Last Name" }%>
+                      input_html: { autocomplete: "Last Name" },
+                      label: false %>
           <%= f.input :email,
-                      placeholder: "jm-dupont@gmail.com",
+                      placeholder: "email",
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "email" }%>
+                      input_html: { autocomplete: "email" },
+                      label: false %>
           <%= f.input :password,
-                      placeholder: "bieres&gonzesses",
+                      placeholder: "password",
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
+                      input_html: { autocomplete: "new-password" },
+                      label: false %>
           <%= f.input :password_confirmation,
-                      placeholder: "bieres&gonzesses",
+                      placeholder: "confirm password",
                       required: true,
-                      input_html: { autocomplete: "new-password" } %>
+                      input_html: { autocomplete: "new-password" },
+                      label: false %>
         </div>
 
         <div class="submit-registration">
