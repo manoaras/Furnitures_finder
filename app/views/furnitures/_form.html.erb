@@ -2,11 +2,11 @@
   <div class="create-furniture">
   <h2>Create your furniture ad</h2>
   <%= simple_form_for @furniture do |f| %>
-    <%= f.input :name, placeholder: 'Chair' %>
-    <%= f.input :description, placeholder: 'Wooden beautiful chair' %>
-    <%= f.input :city, placeholder: '5 Villa Gaudelet, 75011 Paris' %>
-    <%= f.input :price_per_day, placeholder: '2' %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :name, placeholder: 'Name', label: false %>
+    <%= f.input :description, placeholder: 'Description', label: false %>
+    <%= f.input :city, placeholder: 'Address', label: false %>
+    <%= f.input :price_per_day, placeholder: 'Price per day', label: false %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photo" %>
     <div class="create-furniture-submit button-create">
         <input type="submit" name="commit" value="Create" class="btn btn-create" data-disable-with="Create">
         <span></span>
