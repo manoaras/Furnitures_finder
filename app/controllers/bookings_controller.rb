@@ -39,13 +39,13 @@ class BookingsController < ApplicationController
     end
 
 
-    if @booking.save!
-      flash[:alert] = "Booking confirmed"
-      redirect_to booking_path(@booking)
-    else
-      flash[:alert] = "Error, please verify information"
-      render :new, status: :unprocessable_entity
-    end
+    # if @booking.save!
+    #   flash[:alert] = "Booking confirmed"
+    #   redirect_to booking_path(@booking)
+    # else
+    #   flash[:alert] = "Error, please verify information"
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
   def edit
