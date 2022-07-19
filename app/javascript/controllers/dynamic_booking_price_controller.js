@@ -17,7 +17,7 @@ static values = { night: Number }
       const diffTime = Math.ceil((dateEnd - dateStart) / ( 1000 * 60 * 60 * 24))
       const intermediatePrice = (diffTime * this.nightValue)
       this.priceHolderTarget.innerText = intermediatePrice
-      this.totalPriceHolderTarget.innerText = (intermediatePrice + 9.95)
+      this.totalPriceHolderTarget.innerText = (intermediatePrice + 9)
     }
   }
 }
