@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-3"><%= image_tag @payment.furniture.photos.first, width: '100%' %></div>
+    <div class="col">
+      <h1>Checkout summary</h1>
+      <p>Purchase of <strong><%= @payment.furniture.name %></strong> for <strong><%= @payment.total_price %></strong> €</p>
+      <p><strong>From: </strong><%= @payment.start_date.strftime('%d-%m-%Y') %></p>
+      <p><strong>To: </strong><%= @payment.end_date.strftime('%d-%m-%Y') %></p>
+      <div class="shopping-btn" id="pay">
+        <a class="create-shopping" href="/furnitures">Pay</a>
+        <span></span>
+      </div>
+
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @payment.checkout_session_id %>'
+          });
+        });
+      </script>
+    </div>
+  </div>
+</div>
