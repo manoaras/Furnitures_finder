@@ -4,12 +4,18 @@
     <div class="col">
       <h1>Récapitulatif du paiement</h1>
       <p>Achat de <strong><%= @payment.furniture.name %></strong> pour <strong><%= @payment.total_price %></strong> €</p>
-      <p><strong>De : </strong><%= @payment.start_date.strftime('%d-%m-%Y') %></p>
-      <p><strong>A : </strong><%= @payment.end_date.strftime('%d-%m-%Y') %></p>
+      <p><strong>Du : </strong><%= @payment.start_date.strftime('%d-%m-%Y') %></p>
+      <p><strong>Au : </strong><%= @payment.end_date.strftime('%d-%m-%Y') %></p>
+
       <div class="shopping-btn" id="pay">
-        <a class="create-shopping" href="/furnitures">Payer</a>
+        <a class="create-shopping">Payer maintenant</a>
         <span></span>
       </div>
+
+      <div class="shopping-btn">
+      <a class="create-shopping" href="/furnitures">Continuer vos achats</a>
+      <span></span>
+    </div>
 
       <script src="https://js.stripe.com/v3/"></script>
       <script>

@@ -23,14 +23,24 @@
 
 <div class="d-flex justify-content-center">
   <div style="display: inline-block">
+
+    <% if @booking.status == "pending" %>
+      <div class="shopping-btn" id="pay">
+        <a class="create-shopping" href="/furnitures/<%= @booking.furniture.id %>/bookings/<%= @booking.id %>/payments/new">Payer maintenant</a>
+        <span></span>
+      </div>
+    <% end %>
+
     <div class="shopping-btn">
       <a class="create-shopping" href="/furnitures">Continuer vos achats</a>
       <span></span>
     </div>
+
     <div class="shopping-btn">
       <a class="create-shopping" href="/dashboard">Voir mes réservations</a>
       <span></span>
     </div>
+
   </div>
 </div>
 <br>

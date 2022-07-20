@@ -27,6 +27,7 @@ class BookingsController < ApplicationController
         cancel_url: booking_url(@booking)
       )
       @booking.update(checkout_session_id: session.id)
+      @booking.update(status: "pending")
       redirect_to new_furniture_booking_payment_path(@furniture.id, @booking.id)
     else
       flash[:alert] = "Erreur, vérifiez les informations"

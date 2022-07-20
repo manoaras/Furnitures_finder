@@ -17,6 +17,11 @@ skip_before_action :authenticate_user!, only: [:index, :show]
     end
   end
 
+  def index_by_user
+    @furnitures = Furniture.where(user_id: params[:id])
+    authorize @furnitures
+  end
+
   def show
     authorize @furniture
     @booking = Booking.new
