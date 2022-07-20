@@ -61,6 +61,7 @@
 
           <!-- card -->
           <div class="card p-3 m-15 rounded-3  container-booking">
+            <p><em>Voir toutes les annonces de <%= link_to @furniture.user.first_name, user_index_path(@furniture.user.id) %></em></p>
             <p><strong><%= @furniture.description %></strong></p>
             <p><strong>Room of choice delivery:</strong></p>
             <p><small>
@@ -80,8 +81,6 @@
               <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
             </div>
           </div>
-
-
 
         </div>
 

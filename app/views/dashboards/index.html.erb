@@ -29,9 +29,9 @@
     <!-- accepted bookings -->
 
     <div class= "col status">
-      <span id="alert-accepted"><i class="fa-solid fa-check"></i>   ACCEPTÉES</span>
-      <% if Booking.where(user_id: current_user.id).where(status: "accepted") %>
-        <% Booking.where(user_id: current_user.id).where(status: "accepted").each do |b| %></p>
+      <span id="alert-accepted"><i class="fa-solid fa-check"></i>   PAYÉES</span>
+      <% if Booking.where(user_id: current_user.id).where(status: "paid") %>
+        <% Booking.where(user_id: current_user.id).where(status: "paid").each do |b| %></p>
           <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
             <%= cl_image_tag b.furniture.photos.first.key %>
             <div class="card-product-2-infos">
@@ -45,20 +45,6 @@
       <% else %>
         <p>Vous n'avez pas encore de réservation payée.</p>
       <% end %>
-    </div>
-
-    <!-- refused bookings -->
-
-    <div class= "col status">
-      <span id="alert-refused"><i class="fa-solid fa-xmark"></i>   REFUSÉES</span>
-      <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
-        <img src="https://www.nomacool.fr/frontend/files/products/source/topbc145-frigo-table-top-bc-145-5.jpg"/>
-        <div class="card-product-2-infos">
-          <h5><strong> Little fridge </strong></h5>
-          <p> Prix par jour : 2 €</p>
-          <p> Prix total : 100 €</p>
-        </div>
-      </div>
     </div>
 
   </div>

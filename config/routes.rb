@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :bookings, only: :show
 
+  get "/furnitures/user/:id", to: "furnitures#index_by_user", as: "user_index"
+
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -7,6 +7,10 @@ class FurniturePolicy < ApplicationPolicy
     end
   end
 
+  def index_by_user?
+    true
+  end
+
   def show?
     true
   end

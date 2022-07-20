@@ -1,16 +1,11 @@
-<div class="see-all">
-  <% if policy(Furniture).new? %>
-    <%= link_to "+  nouvelle annonce", new_furniture_path, class: "btn-new-furniture"  %>
-  <% end %>
-
-  <h2 class="title-index">Toutes les annonces</h2>
-</div>
+<br>
+<h1>Toutes les annonces de <%= User.where(id: params[:id])[0].first_name %></h1>
 
 <div class="row">
   <% @furnitures.each do |furniture| %>
     <div class="col-4">
-
       <a href="<%= furniture_path(furniture.id)%>">
+
         <div class="card-product">
           <%= cl_image_tag furniture.photos.first.key, height: 300, width: 400, crop: :fill %>
 
@@ -23,14 +18,8 @@
           </div>
 
         </div>
-      </a>
 
+      </a>
     </div>
   <% end %>
-
-  <div style="width: 100%; height: 600px;" id="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
 </div>
