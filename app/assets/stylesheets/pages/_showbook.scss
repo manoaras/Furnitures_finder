@@ -77,3 +77,29 @@
 .card-product-2 {
   border-radius: 4px;
 }
+
+.pending-status {
+  width: 110px;
+  padding: 5px 10px;
+  text-align: center;
+  color: rgb(128, 96, 0);
+  background-color: rgb(255,230, 153);
+  border-radius: 4px;
+
+  & p {
+    margin: 0;
+  }
+}
+
+.accepted-status {
+  width: 110px;
+  padding: 5px 10px;
+  text-align: center;
+  color: rgb(0, 97, 0);
+  background-color: rgb(198, 239, 206);
+  border-radius: 4px;
+
+  & p {
+    margin: 0;
+  }
+}

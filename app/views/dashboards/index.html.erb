@@ -1,0 +1,65 @@
+<br>
+<h1>Mes réservations</h1>
+<br>
+
+<div class="container-dashboard d-flex row m-10 card-radius">
+  <div class="col align-self-center row align-items-start">
+
+    <!-- pending bookings-->
+
+    <div class= "col status">
+      <span id="alert-pending">EN ATTENTE...</span>
+      <% if Booking.where(user_id: current_user.id).where(status: "pending") %>
+        <% Booking.where(user_id: current_user.id).where(status: "pending").each do |b| %></p>
+          <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
+            <%= cl_image_tag b.furniture.photos.first.key %>
+            <div class="card-product-2-infos">
+              <h5><strong><%= link_to b.furniture.name, booking_path(b) %></strong></h5>
+              <p> Prix par jour : <%= b.furniture.price_per_day %> €</p>
+              <p> Prix total : <%= b.total_price %> €</p>
+              <p> Dates : <%= b.start_date.strftime('%d/%m/%Y') %> - <%= b.end_date.strftime('%d/%m/%Y') %></p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>Vous n'avez pas de réservations en attente.</p>
+      <% end %>
+    </div>
+
+    <!-- accepted bookings -->
+
+    <div class= "col status">
+      <span id="alert-accepted"><i class="fa-solid fa-check"></i>   ACCEPTÉES</span>
+      <% if Booking.where(user_id: current_user.id).where(status: "accepted") %>
+        <% Booking.where(user_id: current_user.id).where(status: "accepted").each do |b| %></p>
+          <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
+            <%= cl_image_tag b.furniture.photos.first.key %>
+            <div class="card-product-2-infos">
+                <h5><strong><%= link_to b.furniture.name, booking_path(b) %></strong></h5>
+                <p> Prix par jour : <%= b.furniture.price_per_day %> €</p>
+                <p> Prix total : <%= b.total_price %> €</p>
+                <p> Dates : <%= b.start_date.strftime('%d/%m/%Y') %> - <%= b.end_date.strftime('%d/%m/%Y') %></p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>Vous n'avez pas encore de réservation payée.</p>
+      <% end %>
+    </div>
+
+    <!-- refused bookings -->
+
+    <div class= "col status">
+      <span id="alert-refused"><i class="fa-solid fa-xmark"></i>   REFUSÉES</span>
+      <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
+        <img src="https://www.nomacool.fr/frontend/files/products/source/topbc145-frigo-table-top-bc-145-5.jpg"/>
+        <div class="card-product-2-infos">
+          <h5><strong> Little fridge </strong></h5>
+          <p> Prix par jour : 2 €</p>
+          <p> Prix total : 100 €</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
