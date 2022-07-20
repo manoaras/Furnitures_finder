@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root to: "pages#home"
+
+  get "/dashboard", to: "dashboards#index"
+
   resources :furnitures do
     resources :bookings, only: :create do
       resources :payments, only: :new
     end
   end
-  resources :bookings, only: [:show]
+
+  resources :bookings, only: :show
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
