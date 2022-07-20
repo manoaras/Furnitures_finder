@@ -2,11 +2,14 @@
   <div class="create-furniture">
   <h2>Créez votre annonce</h2>
   <%= simple_form_for @furniture do |f| %>
-    <%= f.input :name, placeholder: 'Nom', label: false %>
-    <%= f.input :description, placeholder: 'Description', label: false %>
-    <%= f.input :city, placeholder: 'Adresse', label: false %>
-    <%= f.input :price_per_day, placeholder: 'Prix par jour', label: false %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photo" %>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :genre,
+              collection: ["Accessoire", "Armoire", "Bain & baignoire", "Bibliothèque & étagère", "Buffet", "Bureau", "Canapé", "Chaise, tabouret et banc", "Coffre & malle", "Commode", "Dressing & penderie", "Fauteuil", "Lit", "Luminaire", "Matelas", "Meuble de cuisine", "Meuble de jardin", "Meuble de rangement", "Meuble de salle de bain", "Meuble TV", "Porte manteau", "Table de salle à manger", "Table basse", "Table de chevet", "Tapis", "Autre"],
+              label: "Genre" %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :city, label: 'Adresse' %>
+    <%= f.input :price_per_day, label: 'Prix par jour' %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, required: true, label: "Photo" %>
     <div class="create-furniture-submit button-create">
         <input type="submit" name="commit" value="Ajouter" class="btn btn-create" data-disable-with="Create">
         <span></span>
