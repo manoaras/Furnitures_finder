@@ -1,4 +1,4 @@
-<h2>Resend unlock instructions</h2>
+<h2>Renvoyer les informations de déverrouillage</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -10,11 +10,11 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" },
                 label: false,
-                placeholder: "email" %>
+                placeholder: "Email" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Resend unlock instructions" %>
+    <%= f.button :submit, "Renvoyer les informations de déverrouillage" %>
   </div>
 <% end %>
 

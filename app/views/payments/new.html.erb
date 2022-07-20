@@ -2,12 +2,12 @@
   <div class="row py-4">
     <div class="col-md-3"><%= image_tag @payment.furniture.photos.first, width: '100%' %></div>
     <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @payment.furniture.name %></strong> for <strong><%= @payment.total_price %></strong> €</p>
-      <p><strong>From: </strong><%= @payment.start_date.strftime('%d-%m-%Y') %></p>
-      <p><strong>To: </strong><%= @payment.end_date.strftime('%d-%m-%Y') %></p>
+      <h1>Récapitulatif du paiement</h1>
+      <p>Achat de <strong><%= @payment.furniture.name %></strong> pour <strong><%= @payment.total_price %></strong> €</p>
+      <p><strong>De : </strong><%= @payment.start_date.strftime('%d-%m-%Y') %></p>
+      <p><strong>A : </strong><%= @payment.end_date.strftime('%d-%m-%Y') %></p>
       <div class="shopping-btn" id="pay">
-        <a class="create-shopping" href="/furnitures">Pay</a>
+        <a class="create-shopping" href="/furnitures">Payer</a>
         <span></span>
       </div>
 

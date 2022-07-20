@@ -36,8 +36,10 @@ class BookingsController < ApplicationController
       )
       @booking.update(checkout_session_id: session.id)
       redirect_to new_furniture_booking_payment_path(@furniture.id, @booking.id)
+    else
+      flash[:alert] = "Erreur, vérifiez les informations"
+      render :new, status: :unprocessable_entity
     end
-
 
     # if @booking.save!
     #   flash[:alert] = "Booking confirmed"

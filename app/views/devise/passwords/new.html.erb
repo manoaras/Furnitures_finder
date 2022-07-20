@@ -1,7 +1,7 @@
 <div class="form-container-password">
 
   <div class="form-password">
-    <h2>Forgot your password?</h2>
+    <h2>Mot de passe oublié ?</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
@@ -10,13 +10,13 @@
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    placeholder: "email",
+                    placeholder: "Email",
                     input_html: { autocomplete: "email" },
                     label: false %>
       </div>
 
       <div class="password-submit">
-        <%= f.button :submit, "Send " %>
+        <%= f.button :submit, "Confirmer " %>
       </div>
     <% end %>
 
