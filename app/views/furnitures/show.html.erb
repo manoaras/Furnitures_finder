@@ -1,194 +1,191 @@
-  <br>
-    <div class="secondary-button">
-        <a href="<%= furnitures_path %>">
-          <i class="fa-solid fa-angles-left"></i>
-        </a>
-        <%= link_to "Retour", furnitures_path %>
+<div class="secondary-button mt-3 mb-0">
+    <a href="<%= furnitures_path %>">
+      <i class="fa-solid fa-angles-left"></i>
+    </a>
+    <%= link_to "Retour", furnitures_path %>
+</div>
+
+<!-- furniture title and photos -->
+<div class="card p-6 w-75 d-block mx-auto bg-transparent border-0">
+  <div class="card-body d-block mx-auto py-0">
+    <h2 class="d-block mx-auto text-center my-0"><strong><%= @furniture.name.capitalize %></strong></h2>
+    <p class="text-muted d-block mx-auto text-center w-75"><%= @furniture.description %></p>
+  </div>
+  <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
 
-    <!-- furniture title and photos -->
-    <div class="card p-6 w-75 d-block mx-auto bg-transparent border-0">
-      <div class="card-body d-block mx-auto">
-        <h2 class="d-block mx-auto text-center"><strong><%= @furniture.name.capitalize %></strong></h2>
-        <p class="text-muted d-block mx-auto text-center w-75"><%= @furniture.description %></p>
-      </div>
-      <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <div class="carousel-inner">
+      <% @furniture.photos.each_with_index do |photo, i|  %>
+        <% if i == 0 %>
+          <div class="carousel-item active">
+        <% else %>
+          <div class="carousel-item">
+        <% end %>
+            <div class="cover center w-100"><%= cl_image_tag photo.key %></div>
+          </div>
+      <% end %>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<!-- /furniture title and photos -->
+
+<!-- furniture booking checkout-->
+<div class="container p-3">
+  <div class="row">
+    <div class="col-md-8 my-5">
+
+      <!-- alert (warning) -->
+
+        <div class="" data-controller="timeout">
+          <div class="hurry alert-warning" role="alert">
+            <strong>Dépêchez-vous !</strong> Plusieurs personnes consultent l'annonce chaque jour.
+          </div>
         </div>
 
-        <div class="carousel-inner">
-          <% @furniture.photos.each_with_index do |photo, i|  %>
-            <% if i == 0 %>
-              <div class="carousel-item active">
-            <% else %>
-              <div class="carousel-item">
-            <% end %>
-                <div class="cover center w-100"><%= cl_image_tag photo.key %></div>
-              </div>
+      <h3>Plus d'informations...</h3>
+
+      <!-- card -->
+      <div class="card p-3 mt-4 rounded-3  container-booking">
+        <p><em><%= link_to "Voir toutes les annonces de #{@furniture.user.first_name}", user_index_path(@furniture.user.id) %></em></p>
+        <p><strong><%= @furniture.description %></strong></p><br>
+        <p>Informations sur la livraison</p>
+        <p><small>
+          Les tarifs de livraison commencent à 5€. Votre commande sera livrée dans une pièce de votre choix. Veuillez sélectionner la date et l'heure de livraison qui vous conviennent le mieux. Vous recevrez un appel du fournisseur de livraison indépendant confirmant votre date de livraison et la fenêtre de temps de 4 heures. Votre signature est requise pour recevoir votre commande. Une fois que vous avez reçu la confirmation que votre commande est en route, le fournisseur de livraison indépendant vous appellera la veille de la date de livraison prévue pour vous fournir une fenêtre de quatre heures.
+        </small></p>
+      </div>
+
+      <div class="edit-destroy">
+          <% if policy(@furniture).edit? %>
+        <a class="fa-solid fa-pen-to-square edit">
+            <%= link_to "Edit this furniture", edit_furniture_path(@furniture) %>
           <% end %>
+        </a>
+        <br>
+        <div class="destroy-icon">
+          <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
         </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
+
     </div>
-    <!-- /furniture title and photos -->
 
-    <!-- furniture booking checkout-->
-    <div class="container p-3">
-      <div class="row">
-        <div class="col-md-8 my-5">
+    <div class="col-md-4 ">
+      <!-- checkout -->
+      <div class="card p-3 mt-1  container-booking">
 
-          <!-- alert (warning) -->
-
-            <div class="" data-controller="timeout">
-              <div class="hurry alert-warning" role="alert">
-                <strong>Dépêchez-vous !</strong> Plusieurs personnes consultent l'annonce chaque jour.
-              </div>
-
-            </div>
-
-          <h3>Plus d'informations...</h3>
-
-          <!-- card -->
-          <div class="card p-3 m-15 rounded-3  container-booking">
-            <p><em>Voir toutes les annonces de <%= link_to @furniture.user.first_name, user_index_path(@furniture.user.id) %></em></p>
-            <p><strong><%= @furniture.description %></strong></p>
-            <p><strong>Room of choice delivery:</strong></p>
-            <p><small>
-              Delivery rates start at 5€. Your order will be delivered to one room of your choice. Please select the delivery date and time window that works best for you. You will receive a call from the independent delivery provider confirming your delivery date and 4 hour time window. Your signature is required to receive your order.
-              Once you receive confirmation your order is on its way, the independent delivery provider will call the evening prior to your scheduled delivery date to provide you with a four hour window.
-            </small></p>
-          </div>
-
-          <div class="edit-destroy">
-              <% if policy(@furniture).edit? %>
-            <a class="fa-solid fa-pen-to-square edit">
-                <%= link_to "Edit this furniture", edit_furniture_path(@furniture) %>
-              <% end %>
-            </a>
-            <br>
-            <div class="destroy-icon">
-              <%= button_to "Destroy this furniture", @furniture, method: :delete if policy(@furniture).destroy? %>
+        <!-- make this a full length button -->
+        <div class="row ">
+          <div class="d-flex justify-content-between bd-highlight mt-2">
+            <div class="bd-highlight">
+              <p><strong><%= @furniture.price_per_day %> €</strong> /jour</p>
             </div>
           </div>
 
-        </div>
+          <div class="all checkout" data-controller="dynamic-booking-price"
+                    data-dynamic-booking-price-night-value="<%= @furniture.price_per_day %>">
+              <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto justify-content-center">
 
-        <div class="col-md-4 ">
-          <!-- checkout -->
-          <div class="card p-3 mt-1  container-booking">
-
-            <!-- make this a full length button -->
-            <div class="row ">
-              <div class="d-flex justify-content-between bd-highlight mt-2">
-                <div class="bd-highlight">
-                  <p><strong><%= @furniture.price_per_day %> €</strong> /jour</p>
+                <%= simple_form_for [@furniture, @booking],
+                html: {
+                  data: {
+                    controller: 'flatpickr'
+                  }
+                } do |f| %>
+                  <div class="flex-grow-1 bd-highlight d-flex mx-auto ">
+                    <%= f.input :start_date,
+                    as: :string,
+                    label: "Date de début",
+                    input_html: {
+                      data:
+                      {
+                        flatpickr_target: 'startDateInput',
+                        dynamic_booking_price_target: 'startDateInput',
+                        action: 'change->dynamic-booking-price#update'
+                      }
+                    } %>
+                  </div>
+                  <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
+                    <%= f.input :end_date,
+                    as: :string,
+                    label: "Date de fin",
+                    input_html: {
+                      data: {
+                        flatpickr_target: 'endDateInput',
+                        dynamic_booking_price_target: 'endDateInput',
+                        action: 'change->dynamic-booking-price#update'
+                      }
+                    } %>
+                  </div>
+                <div class=" mt-4 button-booking">
+                  <input type="submit" name="commit" value="Je réserve"  data-disable-with="Book it" class="sup-button-booking">
+                  <span></span>
                 </div>
               </div>
 
-              <div class="all checkout" data-controller="dynamic-booking-price"
-                        data-dynamic-booking-price-night-value="<%= @furniture.price_per_day %>">
-                  <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto justify-content-center">
-
-                    <%= simple_form_for [@furniture, @booking],
-                    html: {
-                      data: {
-                        controller: 'flatpickr'
-                      }
-                    } do |f| %>
-                      <div class="flex-grow-1 bd-highlight d-flex mx-auto ">
-                        <%= f.input :start_date,
-                        as: :string,
-                        label: "Date de début",
-                        input_html: {
-                          data:
-                          {
-                            flatpickr_target: 'startDateInput',
-                            dynamic_booking_price_target: 'startDateInput',
-                            action: 'change->dynamic-booking-price#update'
-                          }
-                        } %>
-                      </div>
-                      <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
-                        <%= f.input :end_date,
-                        as: :string,
-                        label: "Date de fin",
-                        input_html: {
-                          data: {
-                            flatpickr_target: 'endDateInput',
-                            dynamic_booking_price_target: 'endDateInput',
-                            action: 'change->dynamic-booking-price#update'
-                          }
-                        } %>
-                      </div>
-                    <div class=" mt-4 button-booking">
-                      <input type="submit" name="commit" value="Je réserve"  data-disable-with="Book it" class="sup-button-booking">
-                      <span></span>
-                    </div>
-                  </div>
-
-                  <div class="d-flex justify-content-between bd-highlight">
-                    <div class="p-2 bd-highlight">
-                      <p><strong>Total</strong> hors taxes</p>
-                    </div>
-                    <div class="p-2 bd-highlight">
-                      <p> <span data-dynamic-booking-price-target="priceHolder"></span> €</p>
-                    </div>
-                  </div>
-
-                  <div class="d-flex justify-content-between bd-highlight">
-                    <div class="p-2 bd-highlight">
-                      <p><strong>Livraison</strong></p>
-                    </div>
-                    <div class="p-2 bd-highlight">
-                      <p>5 €</p>
-                    </div>
-                  </div>
-
-                  <div class="d-flex justify-content-between bd-highlight">
-                    <div class="p-2 bd-highlight">
-                      <p><strong>Service</strong></p>
-                    </div>
-                    <div class="p-2 bd-highlight">
-                      <p>4 €</p>
-                    </div>
-                  </div>
-
-                  <div class="d-flex justify-content-between bd-highlight border-top">
-                    <div class="p-2 bd-highlight">
-                      <p><strong>Total</strong></p>
-                    </div>
-                    <div class="p-2 bd-highlight">
-                      <p><strong><span data-dynamic-booking-price-target="totalPriceHolder"></span> €</strong></p>
-                    </div>
-                  </div>
-                <% end %>
+              <div class="d-flex justify-content-between bd-highlight">
+                <div class="p-2 bd-highlight">
+                  <p><strong>Total</strong> hors taxes</p>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <p> <span data-dynamic-booking-price-target="priceHolder"></span> €</p>
+                </div>
               </div>
 
-            </div>
+              <div class="d-flex justify-content-between bd-highlight">
+                <div class="p-2 bd-highlight">
+                  <p><strong>Livraison</strong></p>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <p>5 €</p>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between bd-highlight">
+                <div class="p-2 bd-highlight">
+                  <p><strong>Service</strong></p>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <p>4 €</p>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between bd-highlight border-top">
+                <div class="p-2 bd-highlight">
+                  <p><strong>Total</strong></p>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <p><strong><span data-dynamic-booking-price-target="totalPriceHolder"></span> €</strong></p>
+                </div>
+              </div>
+            <% end %>
           </div>
-          <!-- /checkout -->
+
         </div>
       </div>
+      <!-- /checkout -->
     </div>
+  </div>
+</div>
 
-    <!-- Bootstrap JavaScript library -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- Bootstrap JavaScript library -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <br>
+<br>
 
-    <%# <div class="clearfix">
-      <div class="spinner-border float-end" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div> %>
+<%# <div class="clearfix">
+  <div class="spinner-border float-end" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div> %>

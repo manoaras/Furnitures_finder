@@ -3,7 +3,11 @@
     <%= link_to "+  nouvelle annonce", new_furniture_path, class: "btn-new-furniture"  %>
   <% end %>
 
-  <h2 class="title-index">Toutes les annonces</h2>
+  <% if params[:search].nil? %>
+    <h2 class="title-index">Toutes les annonces</h2>
+  <% else %>
+    <h2 class="title-index">Résultats pour '<%= params[:search] %>'</h2>
+  <% end %>
 </div>
 
 <div class="row">
