@@ -4,4 +4,27 @@
 #map {
   border: 10px solid white;
   border-radius: 2px;
+  margin: 30px 0 25px 0;
+}
+
+.link-to-map {
+  position: fixed;
+  text-align: center;
+  height: 35px;
+  padding: 5px;
+  bottom: 50px;
+  right: 20px;
+  width: 100px;
+  background: rgba(0, 96, 127, 0.65);
+  color: white;
+  border-radius: 50px;
+
+  & :hover {
+    text-decoration: none;
+  }
+}
+
+.link-to-map a {
+  text-decoration: none;
+  color: white;
 }
