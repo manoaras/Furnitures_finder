@@ -5,6 +5,8 @@ class BookingsController < ApplicationController
   def show
     authorize @booking
     @furniture = @booking.furniture
+    @session = Stripe::Checkout::Session.retrieve(@booking.checkout_session_id)
+    @booking.update(status: "paid") if @session.payment_status == "paid"
   end
 
   def create
