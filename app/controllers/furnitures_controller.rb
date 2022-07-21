@@ -1,6 +1,6 @@
 class FurnituresController < ApplicationController
-before_action :set_furniture, only: [:show, :edit, :update, :destroy]
-skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_furniture, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @furnitures = policy_scope(Furniture)
@@ -12,7 +12,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
       {
         lat: furniture.latitude,
         lng: furniture.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {furniture: furniture})
+        info_window: render_to_string(partial: "info_window", locals: { furniture: furniture })
       }
     end
   end

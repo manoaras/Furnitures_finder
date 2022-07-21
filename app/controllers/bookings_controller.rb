@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:destroy, :show]
-  before_action :set_furniture, only: [:create]
+  before_action :set_booking, only: :show
+  before_action :set_furniture, only: :create
 
   def show
     authorize @booking
@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.furniture_id = @furniture.id
     @booking.user_id = current_user.id
-    @booking.total_price = (@furniture.price_per_day * ((Time.parse(@booking.end_date.to_s).to_i - Time.parse(@booking.start_date.to_s).to_i) / (60*60*24))) + 9
+    @booking.total_price = (@furniture.price_per_day * ((Time.parse(@booking.end_date.to_s).to_i - Time.parse(@booking.start_date.to_s).to_i) / (60 * 60 * 24))) + 9
     authorize @booking
 
     if @booking.save!
@@ -33,14 +33,6 @@ class BookingsController < ApplicationController
       flash[:alert] = "Erreur, vérifiez les informations"
       render :new, status: :unprocessable_entity
     end
-
-    # if @booking.save!
-    #   flash[:alert] = "Booking confirmed"
-    #   redirect_to booking_path(@booking)
-    # else
-    #   flash[:alert] = "Error, please verify information"
-    #   render :new, status: :unprocessable_entity
-    # end
   end
 
   def edit
